@@ -1,0 +1,1742 @@
+[
+    {
+        "id": "b44ae44062688afa",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "fd60efe58420a42c",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "722bf71392a75930",
+        "type": "mqtt-broker",
+        "name": "Temp",
+        "broker": "dfffffff.ala.asia-southeast1.emqxsl.com",
+        "port": "8883",
+        "tls": "",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": true,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "190700413cb1a6c6",
+        "type": "mqtt-broker",
+        "name": "led",
+        "broker": "dfffffff.ala.asia-southeast1.emqxsl.com",
+        "port": "8883",
+        "tls": "",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": true,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "34ef396701f1d85f",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "dfffffff.ala.asia-southeast1.emqxsl.com",
+        "port": "8883",
+        "tls": "",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": true,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "fa9d3d7a508fb870",
+        "type": "mqtt-broker",
+        "name": "fan",
+        "broker": "dfffffff.ala.asia-southeast1.emqxsl.com",
+        "port": "8883",
+        "tls": "",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": true,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "85868b828ba66d5c",
+        "type": "mqtt-broker",
+        "name": "Fan",
+        "broker": "dfffffff.ala.asia-southeast1.emqxsl.com",
+        "port": "8883",
+        "tls": "",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": true,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "0e8f91213022b9ea",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": false
+    },
+    {
+        "id": "b952a29597227932",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094CE",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "92eeebd1eefdbfb4",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "@flowfuse/node-red-dashboard": "1.29.0"
+        }
+    },
+    {
+        "id": "22cab652f5c2a76b",
+        "type": "ui-page",
+        "name": "Hệ thống giám sát ",
+        "ui": "0e8f91213022b9ea",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "b952a29597227932",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "84349bddc1aa9bfc",
+        "type": "ui-group",
+        "name": "Group 1",
+        "page": "22cab652f5c2a76b",
+        "width": 12,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": true,
+        "disabled": false,
+        "groupType": "default"
+    },
+    {
+        "id": "0380d13507b8278e",
+        "type": "ui-group",
+        "name": "Group 2",
+        "page": "22cab652f5c2a76b",
+        "width": 6,
+        "height": 1,
+        "order": 2,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "77ec1b5a0e040952",
+        "type": "ui-group",
+        "name": "Paking",
+        "page": "22cab652f5c2a76b",
+        "width": 6,
+        "height": 1,
+        "order": 3,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "5d4a9657f5a4f955",
+        "type": "ui-group",
+        "name": "FAN",
+        "page": "22cab652f5c2a76b",
+        "width": 6,
+        "height": 1,
+        "order": 4,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "15a27be3f2b9d053",
+        "type": "ui-page",
+        "name": "LED",
+        "ui": "0e8f91213022b9ea",
+        "path": "/page2",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "b952a29597227932",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 2,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "7df3ae7d0e8e67be",
+        "type": "ui-group",
+        "name": "LED12",
+        "page": "15a27be3f2b9d053",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "eb2842218c504430",
+        "type": "ui-group",
+        "name": "LED34",
+        "page": "15a27be3f2b9d053",
+        "width": 6,
+        "height": 1,
+        "order": 2,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "8038274b132fcb6f",
+        "type": "ui-group",
+        "name": "LEDALL",
+        "page": "15a27be3f2b9d053",
+        "width": 6,
+        "height": 1,
+        "order": 3,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "594c65053507c552",
+        "type": "mqtt in",
+        "z": "b44ae44062688afa",
+        "name": "",
+        "topic": "esp32/servo",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "722bf71392a75930",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 280,
+        "wires": [
+            [
+                "3db424ce092aed97",
+                "324758f7b0fecb73"
+            ]
+        ]
+    },
+    {
+        "id": "5f03ef73390b39f7",
+        "type": "mqtt in",
+        "z": "b44ae44062688afa",
+        "name": "",
+        "topic": "esp32/sht30",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "722bf71392a75930",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 580,
+        "wires": [
+            [
+                "eecdad68f2a15a22",
+                "e41f2fd3cd4c2a67",
+                "e2c05a1e5b2e97e7"
+            ]
+        ]
+    },
+    {
+        "id": "3db424ce092aed97",
+        "type": "debug",
+        "z": "b44ae44062688afa",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 340,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "eecdad68f2a15a22",
+        "type": "debug",
+        "z": "b44ae44062688afa",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 360,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "e41f2fd3cd4c2a67",
+        "type": "function",
+        "z": "b44ae44062688afa",
+        "name": "function 1",
+        "func": "msg.payload = msg.payload.temperature;   // hoặc humidity\nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 600,
+        "wires": [
+            [
+                "182435e2122bc344"
+            ]
+        ]
+    },
+    {
+        "id": "e2c05a1e5b2e97e7",
+        "type": "function",
+        "z": "b44ae44062688afa",
+        "name": "function 2",
+        "func": "msg.payload = msg.payload.humidity;   // hoặc humidity\nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 700,
+        "wires": [
+            [
+                "dee41f10aabf3b40"
+            ]
+        ]
+    },
+    {
+        "id": "324758f7b0fecb73",
+        "type": "function",
+        "z": "b44ae44062688afa",
+        "name": "function 3",
+        "func": "// Đánh dấu message đến từ MQTT\nmsg.source = \"mqtt\";\n\n// esp32 gửi \"1\" hoặc \"0\"\nif (msg.payload == \"1\") {\n    msg.payload = true;      // bật switch\n}\nelse if (msg.payload == \"0\") {\n    msg.payload = false;     // tắt switch\n}\n\nreturn msg;\n\n\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 380,
+        "wires": [
+            [
+                "6ed6d5714b67e2d5"
+            ]
+        ]
+    },
+    {
+        "id": "182435e2122bc344",
+        "type": "ui-gauge",
+        "z": "b44ae44062688afa",
+        "name": "Temp",
+        "group": "84349bddc1aa9bfc",
+        "order": 2,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 5,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Temp",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "°C",
+        "icon": "mdi-thermometer",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "value"
+            },
+            {
+                "from": "30",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "45",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "100",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "100",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 530,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dee41f10aabf3b40",
+        "type": "ui-gauge",
+        "z": "b44ae44062688afa",
+        "name": "Humility",
+        "group": "84349bddc1aa9bfc",
+        "order": 3,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 4,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Humility",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "%",
+        "icon": "mdi-water-percent",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "60",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "80",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "100",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "100",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 540,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "513644dd1aa09c60",
+        "type": "mqtt in",
+        "z": "b44ae44062688afa",
+        "name": "",
+        "topic": "esp32/led",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "190700413cb1a6c6",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 160,
+        "wires": [
+            [
+                "cd03f548b971c9b8"
+            ]
+        ]
+    },
+    {
+        "id": "cd03f548b971c9b8",
+        "type": "ui-switch",
+        "z": "b44ae44062688afa",
+        "name": "led",
+        "label": "switch",
+        "group": "0380d13507b8278e",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "switch",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 330,
+        "y": 160,
+        "wires": [
+            [
+                "7eb36cdf8613ce11"
+            ]
+        ]
+    },
+    {
+        "id": "7eb36cdf8613ce11",
+        "type": "function",
+        "z": "b44ae44062688afa",
+        "name": "function 4",
+        "func": "if (msg.payload === true) {\n    msg.payload = \"on\";  // Nếu payload là true, đổi thành \"on\"\n} else if (msg.payload === false) {\n    msg.payload = \"off\";  // Nếu payload là false, đổi thành \"off\"\n}\nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 160,
+        "wires": [
+            [
+                "0f3b903d8c83c02b"
+            ]
+        ]
+    },
+    {
+        "id": "0f3b903d8c83c02b",
+        "type": "mqtt out",
+        "z": "b44ae44062688afa",
+        "name": "",
+        "topic": "esp32/led",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "34ef396701f1d85f",
+        "x": 720,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "d88936c88f38d296",
+        "type": "ui-template",
+        "z": "b44ae44062688afa",
+        "group": "77ec1b5a0e040952",
+        "page": "",
+        "ui": "",
+        "name": "HN",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<template>\n  <div class=\"grid-container\">\n    <div v-for=\"slot in [1]\" :key=\"slot\" class=\"slot\" :id=\"'slot-' + slot\" :class=\"{\n      'occupied': payload === 'HIGH', \n      'empty': payload === 'LOW'\n    }\">\n      <p class=\"slot-title\">Slot {{ slot }}</p>\n      \n      <img \n        class=\"slot-img\" \n        :id=\"'img-' + slot\" \n        v-if=\"payload === 'HIGH'\" \n        :src=\"images[slot]\" \n        alt=\"'Car Slot ' + slot\" \n      />\n\n      <div class=\"slot-info\">\n        <p class=\"slot-status\">{{ payload === 'HIGH' ? 'OCCUPIED' : 'EMPTY' }}</p>\n        <p class=\"slot-timer\">Time: {{ formatTime(timers[slot]) }}</p>\n      </div>\n    </div>\n  </div>\n</template>\n\n<script>\nexport default {\n  data() {\n    return {\n      images: {\n        1: \"/car_topview.png\",  // Hình ảnh xe cho slot 1\n      },\n      payload: null,  // Nhận tín hiệu từ Function Node (HIGH / LOW)\n      timers: {\n        1: 0,\n      },\n      timerIntervals: {}, \n    };\n  },\n  methods: {\n    updatePayload(msg) {\n      this.payload = msg.payload;\n\n      if (this.payload === \"HIGH\" || this.payload === \"LOW\") {\n        if (this.payload === \"HIGH\") {\n          this.startTimer(1);\n        } else {\n          this.stopTimer(1);\n        }\n      }\n    },\n    startTimer(slot) {\n      if (this.timerIntervals[slot]) return;\n\n      this.timerIntervals[slot] = setInterval(() => {\n        this.timers[slot] += 1;\n      }, 1000);\n    },\n    stopTimer(slot) {\n      clearInterval(this.timerIntervals[slot]);\n      this.timerIntervals[slot] = null;\n      this.timers[slot] = 0;\n    },\n    formatTime(seconds) {\n      const minutes = Math.floor(seconds / 60);\n      const secs = seconds % 60;\n      return `${String(minutes).padStart(2, \"0\")}:${String(secs).padStart(2, \"0\")}`;\n    },\n  },\n  mounted() {\n    this.$watch(\"msg\", (newMsg) => {\n      if (newMsg) {\n        this.updatePayload(newMsg);\n      }\n    });\n  },\n};\n</script>\n\n<style scoped>\n.grid-container {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n  gap: 20px;\n  justify-content: center;\n  padding: 20px;\n  max-width: 1200px;\n  margin: 0 auto;\n}\n\n.slot {\n  width: 220px;\n  height: 300px;\n  border-radius: 15px;\n  padding: 20px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: space-between;\n  background: linear-gradient(135deg, #66cc66, #33cc33);  /* Màu gradient xanh */\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);\n  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;\n}\n\n.slot.occupied {\n  background: linear-gradient(135deg, #ff6666, #ff4444);  /* Màu gradient đỏ */\n  box-shadow: 0 8px 12px rgba(255, 0, 0, 0.3);\n}\n\n.slot.empty {\n  background: linear-gradient(135deg, #66cc66, #33cc33);  /* Màu xanh khi trống */\n}\n\n.slot-title {\n  font-size: 20px;\n  font-weight: bold;\n  color: white;\n  margin-bottom: 15px;\n}\n\n.slot-img {\n  width: 80%;\n  height: auto;\n  max-height: 100px;\n  object-fit: contain;\n}\n\n.slot-info {\n  text-align: center;\n}\n\n.slot-status {\n  font-size: 18px;\n  font-weight: bold;\n  color: white;\n  text-transform: uppercase;\n}\n\n.slot-timer {\n  font-size: 16px;\n  color: white;\n}\n\n@media (max-width: 768px) {\n  .grid-container {\n    grid-template-columns: 1fr;\n  }\n}\n</style>\n\n\n",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1130,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "387cbe57e52a1ab5",
+        "type": "ui-switch",
+        "z": "b44ae44062688afa",
+        "name": "Paking",
+        "label": "switch",
+        "group": "77ec1b5a0e040952",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "switch",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 730,
+        "y": 580,
+        "wires": [
+            [
+                "d63ea4587764490f"
+            ]
+        ]
+    },
+    {
+        "id": "d63ea4587764490f",
+        "type": "function",
+        "z": "b44ae44062688afa",
+        "name": "function 6",
+        "func": "var msgPayload = msg.payload;  // Nhận tín hiệu từ Switch Node\n\n// Kiểm tra tín hiệu từ Switch (ON/OFF)\nif (msgPayload === true) {  // Khi switch bật\n    msg.payload = \"HIGH\";  // Trạng thái OCCUPIED (màu đỏ)\n} else if (msgPayload === false) {  // Khi switch tắt\n    msg.payload = \"LOW\";   // Trạng thái EMPTY (màu xanh)\n}\n\nreturn msg;  // Gửi tín hiệu đã xử lý đến ui_template Node\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 580,
+        "wires": [
+            [
+                "d88936c88f38d296"
+            ]
+        ]
+    },
+    {
+        "id": "0f728b0367acfb42",
+        "type": "mqtt in",
+        "z": "b44ae44062688afa",
+        "name": "",
+        "topic": "esp32/fan",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "fa9d3d7a508fb870",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 860,
+        "wires": [
+            [
+                "6a7807764618c187"
+            ]
+        ]
+    },
+    {
+        "id": "ecc1304144115066",
+        "type": "mqtt out",
+        "z": "b44ae44062688afa",
+        "name": "",
+        "topic": "esp32/fan",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "85868b828ba66d5c",
+        "x": 1100,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "c860844a55395a91",
+        "type": "ui-template",
+        "z": "b44ae44062688afa",
+        "group": "5d4a9657f5a4f955",
+        "page": "",
+        "ui": "",
+        "name": "FAN",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<div id=\"fan-box\">\n    <div id=\"fan\" class=\"{{payload ? 'on' : 'off'}}\">\n        <div class=\"blade b1\"></div>\n        <div class=\"blade b2\"></div>\n        <div class=\"blade b3\"></div>\n        <div class=\"blade b4\"></div>\n        <div class=\"blade b5\"></div>\n    </div>\n    <div id=\"status\">{{payload ? \"ĐANG QUAY\" : \"ĐÃ TẮT\"}}</div>\n</div>\n\n<style>\n#fan-box {\n    text-align: center;\n    margin-top: 10px;\n    font-family: Arial, sans-serif;\n}\n\n#fan {\n    position: relative;\n    width: 120px;\n    height: 120px;\n    margin: auto;\n    transition: 0.3s ease;\n}\n\n.blade {\n    position: absolute;\n    width: 20px;\n    height: 60px;\n    background: #4CAF50;\n    border-radius: 12px;\n    top: 10px;\n    left: 50%;\n    transform-origin: bottom center;\n    box-shadow: 0 0 8px rgba(0,0,0,0.3);\n}\n\n/* 5 cánh */\n// Xoay từng cánh\n.b1 { transform: translateX(-50%) rotate(0deg); }\n.b2 { transform: translateX(-50%) rotate(72deg); }\n.b3 { transform: translateX(-50%) rotate(144deg); }\n.b4 { transform: translateX(-50%) rotate(216deg); }\n.b5 { transform: translateX(-50%) rotate(288deg); }\n\n/* Khi FAN ON */\n#fan.on .blade {\n    background: #00c853;\n}\n#fan.on {\n    animation: spin 0.5s linear infinite;\n}\n\n/* Khi FAN OFF */\n#fan.off .blade {\n    background: #777;\n}\n#fan.off {\n    animation: none;\n    opacity: 0.6;\n}\n\n@keyframes spin {\n    0% { transform: rotate(0deg); }\n    100% { transform: rotate(360deg); }\n}\n\n#status {\n    margin-top: 10px;\n    font-size: 16px;\n    color: #333;\n    font-weight: bold;\n}\n</style>\n\n\n\n",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 690,
+        "y": 860,
+        "wires": [
+            [
+                "d084833bb342d3dc"
+            ]
+        ]
+    },
+    {
+        "id": "d084833bb342d3dc",
+        "type": "function",
+        "z": "b44ae44062688afa",
+        "name": "function 18",
+        "func": "let out = {};\n\nif (msg.payload === true) {\n    out.payload = \"1\";\n}\nelse if (msg.payload === false) {\n    out.payload = \"0\";\n}\nelse {\n    return null;\n}\n\nreturn out;\n\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 890,
+        "y": 860,
+        "wires": [
+            [
+                "ecc1304144115066"
+            ]
+        ]
+    },
+    {
+        "id": "7358a5c59187de57",
+        "type": "ui-switch",
+        "z": "b44ae44062688afa",
+        "name": "",
+        "label": "switch",
+        "group": "5d4a9657f5a4f955",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "switch",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 510,
+        "y": 860,
+        "wires": [
+            [
+                "c860844a55395a91"
+            ]
+        ]
+    },
+    {
+        "id": "6a7807764618c187",
+        "type": "function",
+        "z": "b44ae44062688afa",
+        "name": "function 19",
+        "func": "let p = msg.payload.toString();\n\nif (p === \"1\") {\n    msg.payload = true;       // Switch bật\n}\nelse if (p === \"0\") {\n    msg.payload = false;      // Switch tắt\n}\nelse {\n    return null;              // Không xử lý giá trị khác\n}\n\nreturn msg;\n\n\n\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 860,
+        "wires": [
+            [
+                "7358a5c59187de57"
+            ]
+        ]
+    },
+    {
+        "id": "2407bd39e994ca5a",
+        "type": "mqtt out",
+        "z": "b44ae44062688afa",
+        "name": "",
+        "topic": "esp32/servo",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "722bf71392a75930",
+        "x": 930,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "b3c34b7ecca8409f",
+        "type": "function",
+        "z": "b44ae44062688afa",
+        "name": "function 17",
+        "func": "msg.payload = \"1\";    // lệnh chạy servo 1 lần\nmsg.topic = \"esp32/servo\";\nreturn msg;\n\n\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 380,
+        "wires": [
+            [
+                "2407bd39e994ca5a"
+            ]
+        ]
+    },
+    {
+        "id": "6ed6d5714b67e2d5",
+        "type": "ui-button",
+        "z": "b44ae44062688afa",
+        "group": "84349bddc1aa9bfc",
+        "name": "",
+        "label": "button",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 530,
+        "y": 380,
+        "wires": [
+            [
+                "b3c34b7ecca8409f"
+            ]
+        ]
+    },
+    {
+        "id": "5b592357ae0f89e2",
+        "type": "mqtt in",
+        "z": "fd60efe58420a42c",
+        "name": "",
+        "topic": "esp32/led1",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "190700413cb1a6c6",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 200,
+        "wires": [
+            [
+                "a629b114e5cc7048"
+            ]
+        ]
+    },
+    {
+        "id": "a629b114e5cc7048",
+        "type": "function",
+        "z": "fd60efe58420a42c",
+        "name": "function 5",
+        "func": "// SWITCH → MQTT\nif (msg.payload === true) {\n    msg.payload = \"1\";   // bật\n} else {\n    msg.payload = \"0\";   // tắt\n}\nreturn msg;\n\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 200,
+        "wires": [
+            [
+                "b89e0210753286d0"
+            ]
+        ]
+    },
+    {
+        "id": "b89e0210753286d0",
+        "type": "ui-switch",
+        "z": "fd60efe58420a42c",
+        "name": "LED1",
+        "label": "switch",
+        "group": "7df3ae7d0e8e67be",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "switch",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 570,
+        "y": 200,
+        "wires": [
+            [
+                "0243604b593b4882"
+            ]
+        ]
+    },
+    {
+        "id": "0243604b593b4882",
+        "type": "ui-template",
+        "z": "fd60efe58420a42c",
+        "group": "7df3ae7d0e8e67be",
+        "page": "",
+        "ui": "",
+        "name": "",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<template>\n  <div class=\"led-wrapper\">\n    <div class=\"led\" :class=\"{ on: ledState }\"></div>\n  </div>\n</template>\n\n<script>\nexport default {\n  data() {\n    return {\n      ledState: false, // OFF mặc định\n    };\n  },\n\n  watch: {\n    msg(newVal) {\n      if (!newVal) return;\n\n      // Nếu MQTT gửi \"1\" thì bật, \"0\" thì tắt\n      this.ledState = (newVal.payload === \"1\" || newVal.payload === 1 || newVal.payload === true);\n    }\n  }\n};\n</script>\n\n<style scoped>\n.led-wrapper {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding: 20px;\n}\n\n.led {\n  width: 80px;\n  height: 80px;\n  border-radius: 50%;\n  background: yellow;\n  box-shadow: 0px 0px 20px rgba(100,100,100,0.5);\n  transition: 0.3s;\n}\n\n.led.on {\n  background: red;\n  box-shadow: 0px 0px 30px rgba(255,0,0,0.7);\n}\n</style>\n\n\n\n",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 760,
+        "y": 200,
+        "wires": [
+            [
+                "72580377d9b02c07"
+            ]
+        ]
+    },
+    {
+        "id": "72580377d9b02c07",
+        "type": "function",
+        "z": "fd60efe58420a42c",
+        "name": "function 7",
+        "func": "// FUNCTION 9 – SWITCH → MQTT (LED1)\nif (msg.payload === true) {\n    msg.payload = \"1\";   // bật LED\n} else {\n    msg.payload = \"0\";   // tắt LED\n}\nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 200,
+        "wires": [
+            [
+                "e10d6cb3155bea72"
+            ]
+        ]
+    },
+    {
+        "id": "e10d6cb3155bea72",
+        "type": "mqtt out",
+        "z": "fd60efe58420a42c",
+        "name": "",
+        "topic": "esp32/led1",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "190700413cb1a6c6",
+        "x": 1150,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "7276c09f6c27132e",
+        "type": "mqtt in",
+        "z": "fd60efe58420a42c",
+        "name": "",
+        "topic": "esp32/led2",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "190700413cb1a6c6",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 300,
+        "wires": [
+            [
+                "4a01de6a48442701"
+            ]
+        ]
+    },
+    {
+        "id": "4a01de6a48442701",
+        "type": "function",
+        "z": "fd60efe58420a42c",
+        "name": "function 8",
+        "func": "// SWITCH → MQTT\nif (msg.payload === true) {\n    msg.payload = \"1\";   // bật\n} else {\n    msg.payload = \"0\";   // tắt\n}\nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 300,
+        "wires": [
+            [
+                "47fed778f2a59f9f"
+            ]
+        ]
+    },
+    {
+        "id": "47fed778f2a59f9f",
+        "type": "ui-switch",
+        "z": "fd60efe58420a42c",
+        "name": "LED2",
+        "label": "switch",
+        "group": "7df3ae7d0e8e67be",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "switch",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 570,
+        "y": 300,
+        "wires": [
+            [
+                "630ad611b3472c7f"
+            ]
+        ]
+    },
+    {
+        "id": "630ad611b3472c7f",
+        "type": "ui-template",
+        "z": "fd60efe58420a42c",
+        "group": "7df3ae7d0e8e67be",
+        "page": "",
+        "ui": "",
+        "name": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<template>\n  <div class=\"led-wrapper\">\n    <div class=\"led\" :class=\"{ on: ledState }\"></div>\n  </div>\n</template>\n\n<script>\nexport default {\n  data() {\n    return {\n      ledState: false, // OFF mặc định\n    };\n  },\n\n  watch: {\n    msg(newVal) {\n      if (!newVal) return;\n\n      // Nếu MQTT gửi \"1\" thì bật, \"0\" thì tắt\n      this.ledState = (newVal.payload === \"1\" || newVal.payload === 1 || newVal.payload === true);\n    }\n  }\n};\n</script>\n\n<style scoped>\n.led-wrapper {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding: 20px;\n}\n\n.led {\n  width: 80px;\n  height: 80px;\n  border-radius: 50%;\n  background: gray;\n  box-shadow: 0px 0px 20px rgba(100,100,100,0.5);\n  transition: 0.3s;\n}\n\n.led.on {\n  background: red;\n  box-shadow: 0px 0px 30px rgba(255,0,0,0.7);\n}\n</style>\n\n\n",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 760,
+        "y": 300,
+        "wires": [
+            [
+                "b5c579cd90f438e9"
+            ]
+        ]
+    },
+    {
+        "id": "b5c579cd90f438e9",
+        "type": "function",
+        "z": "fd60efe58420a42c",
+        "name": "function 9",
+        "func": "msg.payload = msg.payload == \"1\" ? \"1\" : \"0\";\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 300,
+        "wires": [
+            [
+                "033770817e2e627a"
+            ]
+        ]
+    },
+    {
+        "id": "033770817e2e627a",
+        "type": "mqtt out",
+        "z": "fd60efe58420a42c",
+        "name": "",
+        "topic": "esp32/led2",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "190700413cb1a6c6",
+        "x": 1150,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "2daca24964f46d23",
+        "type": "mqtt in",
+        "z": "fd60efe58420a42c",
+        "name": "",
+        "topic": "esp32/led_all",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "190700413cb1a6c6",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 400,
+        "wires": [
+            [
+                "6b3f3ec1366e77c6"
+            ]
+        ]
+    },
+    {
+        "id": "6b3f3ec1366e77c6",
+        "type": "function",
+        "z": "fd60efe58420a42c",
+        "name": "function 10",
+        "func": "let p = msg.payload.toString();\n\nif (p === \"1\") {\n    msg.payload = true;  // bật switch\n} \nelse if (p === \"0\") {\n    msg.payload = false; // tắt switch\n} \nelse {\n    return null;         // giá trị rác → bỏ qua\n}\n\nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 400,
+        "wires": [
+            [
+                "bcc891f272e4ca9d",
+                "b89e0210753286d0",
+                "98bf2b4bfd67241a",
+                "487cb461421d929e",
+                "47fed778f2a59f9f"
+            ]
+        ]
+    },
+    {
+        "id": "bcc891f272e4ca9d",
+        "type": "ui-switch",
+        "z": "fd60efe58420a42c",
+        "name": "LED_ALL",
+        "label": "switch",
+        "group": "8038274b132fcb6f",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "switch",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 580,
+        "y": 400,
+        "wires": [
+            [
+                "ed029043ab9451ea",
+                "630ad611b3472c7f",
+                "38d07bb9c7142f06",
+                "19688e883168ef41",
+                "0243604b593b4882"
+            ]
+        ]
+    },
+    {
+        "id": "ed029043ab9451ea",
+        "type": "ui-template",
+        "z": "fd60efe58420a42c",
+        "group": "8038274b132fcb6f",
+        "page": "",
+        "ui": "",
+        "name": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<template>\n  <div class=\"led-wrapper\">\n    <div class=\"led\" :class=\"{ on: ledState }\"></div>\n  </div>\n</template>\n\n<script>\nexport default {\n  data() {\n    return {\n      ledState: false, // OFF mặc định\n    };\n  },\n\n  watch: {\n    msg(newVal) {\n      if (!newVal) return;\n\n      // Nếu MQTT gửi \"1\" thì bật, \"0\" thì tắt\n      this.ledState = (newVal.payload === \"1\" || newVal.payload === 1 || newVal.payload === true);\n    }\n  }\n};\n</script>\n\n<style scoped>\n.led-wrapper {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding: 20px;\n}\n\n.led {\n  width: 80px;\n  height: 80px;\n  border-radius: 50%;\n  background: green;\n  box-shadow: 0px 0px 20px rgba(100,100,100,0.5);\n  transition: 0.3s;\n}\n\n.led.on {\n  background: red;\n  box-shadow: 0px 0px 30px rgba(255,0,0,0.7);\n}\n</style>\n\n\n",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 760,
+        "y": 400,
+        "wires": [
+            [
+                "297f63102ecc5f65"
+            ]
+        ]
+    },
+    {
+        "id": "297f63102ecc5f65",
+        "type": "function",
+        "z": "fd60efe58420a42c",
+        "name": "function 11",
+        "func": "msg.payload = msg.payload == \"1\" ? \"1\" : \"0\";\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 400,
+        "wires": [
+            [
+                "e60d3f34ebbc7e9a"
+            ]
+        ]
+    },
+    {
+        "id": "e60d3f34ebbc7e9a",
+        "type": "mqtt out",
+        "z": "fd60efe58420a42c",
+        "name": "",
+        "topic": "esp32/led_all",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "190700413cb1a6c6",
+        "x": 1150,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "6f68add9ae542c9b",
+        "type": "mqtt in",
+        "z": "fd60efe58420a42c",
+        "name": "",
+        "topic": "esp32/led3",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "190700413cb1a6c6",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 500,
+        "wires": [
+            [
+                "2b51cfda4a1ff4fa"
+            ]
+        ]
+    },
+    {
+        "id": "2b51cfda4a1ff4fa",
+        "type": "function",
+        "z": "fd60efe58420a42c",
+        "name": "function 12",
+        "func": "// SWITCH → MQTT\nif (msg.payload === true) {\n    msg.payload = \"1\";   // bật\n} else {\n    msg.payload = \"0\";   // tắt\n}\nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 500,
+        "wires": [
+            [
+                "98bf2b4bfd67241a"
+            ]
+        ]
+    },
+    {
+        "id": "98bf2b4bfd67241a",
+        "type": "ui-switch",
+        "z": "fd60efe58420a42c",
+        "name": "LED3",
+        "label": "switch",
+        "group": "eb2842218c504430",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "switch",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 570,
+        "y": 500,
+        "wires": [
+            [
+                "38d07bb9c7142f06"
+            ]
+        ]
+    },
+    {
+        "id": "38d07bb9c7142f06",
+        "type": "ui-template",
+        "z": "fd60efe58420a42c",
+        "group": "eb2842218c504430",
+        "page": "",
+        "ui": "",
+        "name": "",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<template>\n  <div class=\"led-wrapper\">\n    <div class=\"led\" :class=\"{ on: ledState }\"></div>\n  </div>\n</template>\n\n<script>\nexport default {\n  data() {\n    return {\n      ledState: false, // OFF mặc định\n    };\n  },\n\n  watch: {\n    msg(newVal) {\n      if (!newVal) return;\n\n      // Nếu MQTT gửi \"1\" thì bật, \"0\" thì tắt\n      this.ledState = (newVal.payload === \"1\" || newVal.payload === 1 || newVal.payload === true);\n    }\n  }\n};\n</script>\n\n<style scoped>\n.led-wrapper {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding: 20px;\n}\n\n.led {\n  width: 80px;\n  height: 80px;\n  border-radius: 50%;\n  background: gray;\n  box-shadow: 0px 0px 20px rgba(100,100,100,0.5);\n  transition: 0.3s;\n}\n\n.led.on {\n  background: red;\n  box-shadow: 0px 0px 30px rgba(255,0,0,0.7);\n}\n</style>\n\n\n",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 760,
+        "y": 500,
+        "wires": [
+            [
+                "422afd525e1db122"
+            ]
+        ]
+    },
+    {
+        "id": "422afd525e1db122",
+        "type": "function",
+        "z": "fd60efe58420a42c",
+        "name": "function 13",
+        "func": "msg.payload = msg.payload == \"1\" ? \"1\" : \"0\";\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 500,
+        "wires": [
+            [
+                "6717d0721b34e00b"
+            ]
+        ]
+    },
+    {
+        "id": "6717d0721b34e00b",
+        "type": "mqtt out",
+        "z": "fd60efe58420a42c",
+        "name": "",
+        "topic": "esp32/led3",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "190700413cb1a6c6",
+        "x": 1150,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "3234f32ecce2583d",
+        "type": "mqtt in",
+        "z": "fd60efe58420a42c",
+        "name": "",
+        "topic": "esp32/led4",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "190700413cb1a6c6",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 600,
+        "wires": [
+            [
+                "780af187b609db1e"
+            ]
+        ]
+    },
+    {
+        "id": "780af187b609db1e",
+        "type": "function",
+        "z": "fd60efe58420a42c",
+        "name": "function 14",
+        "func": "// SWITCH → MQTT\nif (msg.payload === true) {\n    msg.payload = \"1\";   // bật\n} else {\n    msg.payload = \"0\";   // tắt\n}\nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 600,
+        "wires": [
+            [
+                "487cb461421d929e"
+            ]
+        ]
+    },
+    {
+        "id": "487cb461421d929e",
+        "type": "ui-switch",
+        "z": "fd60efe58420a42c",
+        "name": "LED4",
+        "label": "switch",
+        "group": "eb2842218c504430",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "switch",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 570,
+        "y": 600,
+        "wires": [
+            [
+                "19688e883168ef41"
+            ]
+        ]
+    },
+    {
+        "id": "19688e883168ef41",
+        "type": "ui-template",
+        "z": "fd60efe58420a42c",
+        "group": "eb2842218c504430",
+        "page": "",
+        "ui": "",
+        "name": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<template>\n  <div class=\"led-wrapper\">\n    <div class=\"led\" :class=\"{ on: ledState }\"></div>\n  </div>\n</template>\n\n<script>\nexport default {\n  data() {\n    return {\n      ledState: false, // OFF mặc định\n    };\n  },\n\n  watch: {\n    msg(newVal) {\n      if (!newVal) return;\n\n      // Nếu MQTT gửi \"1\" thì bật, \"0\" thì tắt\n      this.ledState = (newVal.payload === \"1\" || newVal.payload === 1 || newVal.payload === true);\n    }\n  }\n};\n</script>\n\n<style scoped>\n.led-wrapper {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding: 20px;\n}\n\n.led {\n  width: 80px;\n  height: 80px;\n  border-radius: 50%;\n  background: gray;\n  box-shadow: 0px 0px 20px rgba(100,100,100,0.5);\n  transition: 0.3s;\n}\n\n.led.on {\n  background: red;\n  box-shadow: 0px 0px 30px rgba(255,0,0,0.7);\n}\n</style>\n\n\n",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 760,
+        "y": 600,
+        "wires": [
+            [
+                "e1a6dfdee6d17db7"
+            ]
+        ]
+    },
+    {
+        "id": "e1a6dfdee6d17db7",
+        "type": "function",
+        "z": "fd60efe58420a42c",
+        "name": "function 15",
+        "func": "msg.payload = msg.payload == \"1\" ? \"1\" : \"0\";\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 600,
+        "wires": [
+            [
+                "f39aab7f2e391a71"
+            ]
+        ]
+    },
+    {
+        "id": "f39aab7f2e391a71",
+        "type": "mqtt out",
+        "z": "fd60efe58420a42c",
+        "name": "",
+        "topic": "esp32/led4",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "190700413cb1a6c6",
+        "x": 1150,
+        "y": 600,
+        "wires": []
+    }
+]
