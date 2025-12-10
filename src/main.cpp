@@ -42,7 +42,7 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 // ===================== Servo =====================
 Servo servoMotor;
 
-// ===================== Namespaces =====================
+
 namespace
 {
     const char *ssid     = WiFiSecrets::ssid;
