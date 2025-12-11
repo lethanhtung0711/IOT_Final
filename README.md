@@ -1,160 +1,108 @@
-# 🐾 Smart Pet Care System
-### Hệ thống chăm sóc thú cưng thông minh sử dụng ESP32, MQTT và Node-RED
+# 🐾 SMART PET CARE SYSTEM – HỆ THỐNG CHĂM SÓC THÚ CƯNG THÔNG MINH
+
+## 📌 Mô tả đề tài
+Trong cuộc sống hiện đại, thú cưng ngày càng được xem là một thành viên trong gia đình. Tuy nhiên, việc chăm sóc chúng đòi hỏi nhiều thời gian: cho ăn đúng giờ, theo dõi môi trường sống, đảm bảo an toàn…  
+Hệ thống chăm sóc thú cưng thông minh được xây dựng nhằm giải quyết các vấn đề này thông qua IoT, cảm biến và điều khiển tự động.
 
 ---
 
-## 📌 Giới thiệu
-
-Trong cuộc sống hiện đại, nhiều người nuôi thú cưng như chó, mèo nhưng không phải lúc nào cũng có thời gian để chăm sóc đầy đủ. Các vấn đề thường gặp:
-
-- Bận rộn, quên cho ăn đúng giờ  
-- Không theo dõi được môi trường sống của thú cưng  
-- Không biết thú cưng đang ở trong chuồng hay đi ra ngoài  
-- Không phát hiện kịp các vấn đề nguy hiểm như nóng quá mức, ẩm cao hoặc khí độc  
-
-**Smart Pet Care System** được thiết kế để giải quyết những vấn đề đó bằng cách giám sát hoàn toàn tự động và có thể điều khiển từ xa.
+## 📖 Mục lục
+- 1. Problem Statement  
+- 2. Main Content  
+- 3. Block Diagram  
+- 4. Pin Diagram  
+- 5. Results  
+- 6. Conclusion  
 
 ---
 
-## 🚗 Problem Statement — Vấn đề thực tiễn
+# 1. Problem Statement
 
-### Nhu cầu thực tế
-- Thú cưng cần ăn uống đúng giờ và đúng lượng.  
-- Môi trường chuồng nuôi phải an toàn và thoải mái.  
-- Chủ nuôi cần giám sát từ xa khi đi làm hoặc đi du lịch.  
-- Hệ thống cần hoạt động ổn định và tự động hóa tối đa.
+### 🔍 Nhu cầu thực tế
+- Chủ bận rộn → quên cho ăn hoặc thay nước.  
+- Không thể theo dõi thú cưng khi đi làm hoặc đi xa.  
+- Môi trường sống thay đổi (nhiệt độ, độ ẩm, khí gas) → gây nguy hiểm.  
+- Không biết thú cưng đang có trong chuồng hay đã đi ra ngoài.
 
-### Những hạn chế hiện tại
-- Cho ăn thủ công dễ bị bỏ quên  
-- Môi trường thay đổi nguy hiểm nhưng không được phát hiện kịp thời  
-- Không thể biết thú cưng ra/vào chuồng  
-- Công chăm sóc lớn khi chủ bận rộn  
+### 💡 Nguồn cảm hứng
+- Nhiều thú cưng gặp nguy hiểm do môi trường sống không đảm bảo.  
+- Mong muốn tạo ra một hệ thống giá rẻ, dễ triển khai.
 
 ---
 
-## 🌟 Real-World Demand — Tính cấp thiết
+# 2. Main Content
 
-Một hệ thống chăm sóc thú cưng thông minh giúp:
+## 🧰 2.1. Hardware
+- ESP32 DevKit V1  
+- 4 × IR Sensor  
+- 1 × Servo SG90  
+- 1 × SHT30 / DHT22 (Temperature + Humidity)  
+- 1 × MQ-2 gas sensor  
+- 1 × LDR light sensor  
+- Quạt mini  
+- Đèn LED  
 
-- Tự động hóa chăm sóc thường ngày  
-- Tăng an toàn nhờ theo dõi môi trường  
-- Điều khiển và giám sát từ xa  
-- Giảm công sức chăm sóc  
-- Nâng cao chất lượng sống cho thú cưng  
+## 🖥 2.2. Software
+- Node-RED Dashboard  
+- MQTT Broker (EMQX)  
+- PlatformIO (Arduino C++)  
 
-Giải pháp chi phí thấp, dễ triển khai cho các hộ gia đình.
-
----
-
-## 💡 Inspiration — Ý tưởng phát triển
-
-Dự án được phát triển từ nhu cầu thực tế:
-
-- Chủ nuôi thường bận rộn không thể chăm sóc đầy đủ  
-- Buồng chuồng kín có thể quá nóng hoặc thiếu thoáng khí  
-- Thú cưng hay chạy ra ngoài mà chủ không biết  
-- Mong muốn tự động hóa để giảm tải công việc  
-
-Mục tiêu: **đơn giản – rẻ – thông minh – dễ mở rộng**.
+## 🧠 2.3. Concept
+- Giám sát vị trí thú cưng theo thời gian thực  
+- Cho ăn tự động bằng servo  
+- Theo dõi môi trường liên tục  
+- Điều khiển quạt và đèn theo ngưỡng hoặc thủ công  
 
 ---
 
-## 🔧 Hardware — Phần cứng sử dụng
-
-### **Bộ điều khiển**
-- ESP32 DevKit V1 — trung tâm xử lý và giao tiếp MQTT
-
-### **Hệ thống chăm sóc thú cưng**
-- Servo SG90 → mở nắp khay thức ăn  
-- Cảm biến hồng ngoại IR → phát hiện thú cưng đến gần  
-- Cảm biến mức nước → kiểm tra nước uống  
-
-### **Hệ thống môi trường**
-- SHT30 / DHT22 → đo nhiệt độ và độ ẩm  
-- MQ-2 → phát hiện khói / khí gas  
-- LDR → đo ánh sáng môi trường  
-- LED → chiếu sáng khi trời tối  
-- Quạt mini → làm mát chuồng khi nhiệt độ cao  
-
-### **Nguồn**
-- Adapter 5V–2A
+# 3. Block Diagram
+*(Thay bằng ảnh thật)*  
+![Block Diagram](./images/3.png)
 
 ---
 
-## 🧠 Software — Phần mềm sử dụng
+# 4. Pin Diagram
+![Pinout](./images/9.png)
 
-### **Node-RED Dashboard**
-- Hiển thị trạng thái chuồng (có thú / trống)  
-- Điều khiển quạt, đèn, servo  
-- Biểu đồ nhiệt độ – độ ẩm  
-- Cảnh báo thời gian thực qua MQTT  
-
-### **MQTT Broker**
-- EMQX Cloud  
-- Ổn định, dễ dùng, tốc độ nhanh  
-
-### **PlatformIO**
-- Lập trình ESP32  
-- Tổ chức code module, dễ bảo trì  
-
----
-
-## 🏗️ Concept — Nguyên lý hoạt động
-
-### **1️⃣ Cho ăn tự động**
-- IR phát hiện thú cưng → mở nắp thức ăn bằng servo  
-- Có chế độ điều khiển từ dashboard  
-
-### **2️⃣ Theo dõi hoạt động**
-- IR nhận biết thú cưng đang ở trong chuồng hay không  
-- Dashboard hiển thị: **OCCUPIED / EMPTY**  
-
-### **3️⃣ Giám sát môi trường**
-- Gửi dữ liệu nhiệt độ – độ ẩm liên tục  
-- Nếu quá nóng → bật quạt  
-- Nếu trời tối → bật đèn  
-
-### **4️⃣ Theo dõi nước uống**
-- Cảm biến mức nước cảnh báo khi sắp hết  
-
-### **5️⃣ Điều khiển từ xa**
-Qua MQTT, có thể điều khiển:
-
-- Quạt  
-- Đèn  
-- Servo thức ăn  
-- Chế độ tự động  
+| Thiết bị | Chân | ESP32 |
+|---------|------|--------|
+| Servo | PWM | 16 |
+| IR Sensor 1 | OUT | 36 |
+| IR Sensor 2 | OUT | 39 |
+| IR Sensor 3 | OUT | 34 |
+| IR Sensor 4 | OUT | 35 |
+| SHT30 | SDA/SCL | 21 / 22 |
+| MQ-2 | AOUT | 32 |
+| LDR | AOUT | 33 |
+| LED | OUT | 23 |
+| Fan | OUT | 14 |
 
 ---
 
-## 📊 Dashboard Features
+# 5. Results
 
-- Trạng thái thú cưng theo thời gian thực  
-- Biểu đồ nhiệt độ – độ ẩm  
-- Điều khiển toàn bộ thiết bị trong chuồng  
-- Màu sắc trực quan: ĐỎ (có thú), XANH (trống)  
+## 5.1. Mô hình
+![Model](./images/8.png)
+
+## 5.2. Node-RED Dashboard
+![Dash1](./images/IOT_Board.png)  
+![Dash2](./images/h2.png)  
+![Dash3](./images/h3.png)  
+![Dash4](./images/5.png)  
+![Dash5](./images/6.png)
 
 ---
 
-## 🎯 Kết luận
+# 6. Conclusion
+- Theo dõi thú cưng theo thời gian thực  
+- Tự động cho ăn  
+- Giám sát môi trường đầy đủ  
+- Điều khiển thiết bị theo ngưỡng hoặc thủ công  
+- Dashboard dễ dùng và trực quan  
+- Kết nối MQTT ổn định  
 
-Hệ thống Smart Pet Care System mang lại:
-
-- Tự động hóa quá trình chăm sóc  
-- Giám sát an toàn và cảnh báo tức thời  
-- Giảm công việc cho người nuôi  
-- Tăng sự thoải mái và an toàn cho thú cưng  
-
-### Khả năng mở rộng:
+## Hướng phát triển:
 - Camera livestream  
-- Nhận diện khuôn mặt thú cưng bằng AI  
-- Theo dõi sức khỏe (chuyển động, nhịp tim)  
-- Gửi thông báo về điện thoại  
-
----
-
-## 👤 Tác giả
-
-**Ngọc Mũm Mĩm 💖**  
-Hệ thống được xây dựng với sự đam mê IoT và tình yêu dành cho thú cưng.
-
+- Nhận diện thú cưng bằng AI  
+- Lịch cho ăn tự động  
+- Cảnh báo qua Zalo / Telegram  
