@@ -85,9 +85,9 @@ Hệ thống chăm sóc thú cưng thông minh được xây dựng nhằm giả
 
 ## 5.2. Node-RED Dashboard
 ![Dash1](./images/IOT_Board.png)  
-![Dash2](./images/h2.png)  
-![Dash3](./images/h3.png)  
-![Dash4](./images/5.png)  
+![Dash2](./images/HN1.png)  
+![Dash3](./images/HN1.png)  
+![Dash4](./images/HN2.png)  
 ![Dash5](./images/6.png)
 
 ---
