@@ -1,8 +1,16 @@
 [
     {
+        "id": "01b01358d6bea386",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "b44ae44062688afa",
         "type": "tab",
-        "label": "Flow 2",
+        "label": "IR SENSOR",
         "disabled": false,
         "info": "",
         "env": []
@@ -10,7 +18,7 @@
     {
         "id": "fd60efe58420a42c",
         "type": "tab",
-        "label": "Flow 3",
+        "label": "LED",
         "disabled": false,
         "info": "",
         "env": []
@@ -253,7 +261,7 @@
                 "cols": "12"
             }
         ],
-        "order": 1,
+        "order": 2,
         "className": "",
         "visible": "true",
         "disabled": "false"
@@ -279,7 +287,7 @@
         "page": "22cab652f5c2a76b",
         "width": 6,
         "height": 1,
-        "order": 2,
+        "order": 3,
         "showTitle": true,
         "className": "",
         "visible": "true",
@@ -291,9 +299,9 @@
         "type": "ui-group",
         "name": "Paking",
         "page": "22cab652f5c2a76b",
-        "width": 6,
+        "width": 12,
         "height": 1,
-        "order": 3,
+        "order": 2,
         "showTitle": true,
         "className": "",
         "visible": "true",
@@ -345,7 +353,7 @@
                 "cols": "12"
             }
         ],
-        "order": 2,
+        "order": 3,
         "className": "",
         "visible": "true",
         "disabled": "false"
@@ -391,6 +399,139 @@
         "visible": "true",
         "disabled": "false",
         "groupType": "default"
+    },
+    {
+        "id": "e35b7948e04fcdb1",
+        "type": "ui-page",
+        "name": "HOME",
+        "ui": "0e8f91213022b9ea",
+        "path": "/page3",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "b952a29597227932",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "2629375e52979a42",
+        "type": "ui-group",
+        "name": "Group 8",
+        "page": "e35b7948e04fcdb1",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "b127297554aff654",
+        "type": "ui-group",
+        "name": "Group 9",
+        "page": "e35b7948e04fcdb1",
+        "width": 6,
+        "height": 1,
+        "order": 2,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "54494a636974b7e8",
+        "type": "mqtt in",
+        "z": "01b01358d6bea386",
+        "name": "",
+        "topic": "esp32/sht30",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "34ef396701f1d85f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 390,
+        "y": 380,
+        "wires": [
+            [
+                "a11c127edbaff09d"
+            ]
+        ]
+    },
+    {
+        "id": "a11c127edbaff09d",
+        "type": "ui-template",
+        "z": "01b01358d6bea386",
+        "group": "b127297554aff654",
+        "page": "",
+        "ui": "",
+        "name": "UI TEMP HUM",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "\n<template>\n  <div class=\"sensor-container\">\n\n    <!-- Title -->\n    <h2 class=\"title\">🌡️ Temperature & Humidity</h2>\n\n    <!-- Sensor floating card -->\n    <div class=\"sensor-card\">\n\n      <div class=\"value-box\">\n        <p class=\"label\">Temperature</p>\n        <p class=\"temp-value\">{{ temperature }}°C</p>\n      </div>\n\n      <div class=\"value-box\">\n        <p class=\"label\">Humidity</p>\n        <p class=\"humi-value\">{{ humidity }}%</p>\n      </div>\n\n    </div>\n  </div>\n</template>\n\n<script>\nexport default {\n  name: \"SHT30_Card\",\n  data() {\n    return {\n      temperature: \"--\",\n      humidity: \"--\",\n    };\n  },\n  mounted() {\n    // Nhận dữ liệu từ Node-RED (msg.payload)\n    this.$watch(\"msg\", (newMsg) => {\n      if (!newMsg || !newMsg.payload) return;\n\n      try {\n        const data = JSON.parse(newMsg.payload);\n        this.temperature = data.temperature.toFixed(1);\n        this.humidity = data.humidity.toFixed(1);\n      } catch (e) {\n        console.log(\"Invalid JSON:\", newMsg.payload);\n      }\n    });\n  },\n};\n</script>\n\n<style scoped>\n.sensor-container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding: 18px;\n  background: linear-gradient(135deg, #e8f0ff, #d1e1ff);\n  border-radius: 20px;\n  box-shadow: 0 10px 25px rgba(0,0,0,0.15);\n}\n\n/* Title */\n.title {\n  font-size: 1.8rem;\n  font-weight: 700;\n  color: #003366;\n  margin-bottom: 15px;\n  text-shadow: 0 2px 4px rgba(0,0,0,0.15);\n}\n\n/* Glassmorphic card */\n.sensor-card {\n  width: 90%;\n  background: rgba(255,255,255,0.45);\n  backdrop-filter: blur(18px);\n  padding: 25px;\n  border-radius: 20px;\n  display: flex;\n  justify-content: space-around;\n  gap: 25px;\n\n  box-shadow: 0 10px 25px rgba(0,0,0,0.12);\n  transition: transform 0.25s ease, box-shadow 0.25s ease;\n}\n\n.sensor-card:hover {\n  transform: translateY(-5px);\n  box-shadow: 0 15px 35px rgba(0,0,0,0.22);\n}\n\n.value-box {\n  text-align: center;\n}\n\n/* Labels */\n.label {\n  font-size: 1rem;\n  font-weight: 600;\n  color: #003366;\n  margin-bottom: 8px;\n}\n\n/* Temperature */\n.temp-value {\n  font-size: 2.8rem;\n  font-weight: 700;\n  color: #ff4d4d;\n  text-shadow: 0 2px 4px rgba(255,80,80,0.4);\n}\n\n/* Humidity */\n.humi-value {\n  font-size: 2.8rem;\n  font-weight: 700;\n  color: #0077ff;\n  text-shadow: 0 2px 4px rgba(80,150,255,0.4);\n}\n</style>\n\n",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 660,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "92e5384e870d5db1",
+        "type": "ui-template",
+        "z": "01b01358d6bea386",
+        "group": "2629375e52979a42",
+        "page": "",
+        "ui": "",
+        "name": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<template>\n  <div class=\"main-container\">\n\n    <!-- Clock -->\n    <div class=\"clock-card\">\n      <p class=\"clock\">{{ time }}</p>\n    </div>\n\n    <div class=\"section-title\">Designed by</div>\n\n    <!-- Author name -->\n    <div class=\"author-card\">\n      <p class=\"author-name\">Lê Thanh Tùng</p>\n    </div>\n\n    <!-- Avatar -->\n    <div class=\"avatar-card\">\n      <img src=\"/author.png\" alt=\"Avatar\" class=\"avatar-img\">\n    </div>\n\n    <!-- Contact section -->\n    <div class=\"section-title\">Contact</div>\n\n    <div class=\"contact-card\">\n      <p>GitHub: \n        <a href=\"https://github.com/lethanhtung0711\" target=\"_blank\">\n          github.com/lethanhtung0711\n        </a>\n      </p>\n\n      <p>Email: \n        <a href=\"mailto:tungtv139@gmail.com\">\n          tungtv139@gmail.com\n        </a>\n      </p>\n    </div>\n\n  </div>\n</template>\n\n<script>\nexport default {\n  name: \"Clock3D_UI\",\n  data() {\n    return {\n      time: this.getCurrentTime(),\n    };\n  },\n  methods: {\n    getCurrentTime() {\n      const now = new Date();\n      const h = String(now.getHours()).padStart(2, \"0\");\n      const m = String(now.getMinutes()).padStart(2, \"0\");\n      const s = String(now.getSeconds()).padStart(2, \"0\");\n      return `${h}:${m}:${s}`;\n    },\n    updateTime() {\n      this.time = this.getCurrentTime();\n    },\n  },\n  mounted() {\n    this.timer = setInterval(this.updateTime, 1000);\n  },\n  beforeDestroy() {\n    clearInterval(this.timer);\n  },\n};\n</script>\n\n<style scoped>\n/* Main layout */\n.main-container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 25px;\n  padding: 20px;\n  background: linear-gradient(135deg, #f0f4ff, #d6e3ff);\n  min-height: 100vh;\n  font-family: \"Poppins\", sans-serif;\n}\n\n/* Card 3D style */\n.clock-card,\n.author-card,\n.avatar-card,\n.contact-card {\n  width: 90%;\n  background: rgba(255, 255, 255, 0.45);\n  backdrop-filter: blur(15px);\n  border-radius: 18px;\n  padding: 18px 25px;\n  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);\n  transition: transform 0.25s ease, box-shadow 0.25s ease;\n}\n\n/* Hover effect */\n.clock-card:hover,\n.author-card:hover,\n.avatar-card:hover,\n.contact-card:hover {\n  transform: translateY(-4px);\n  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);\n}\n\n/* Clock */\n.clock {\n  font-size: 3.6rem;\n  font-weight: 700;\n  color: #1a1a1a;\n  text-align: center;\n  text-shadow: 0 0 8px rgba(0, 120, 255, 0.4);\n  letter-spacing: 3px;\n}\n\n/* Title */\n.section-title {\n  font-size: 1.3rem;\n  font-weight: 600;\n  width: 90%;\n  color: #222;\n  margin-top: 10px;\n}\n\n/* Author name */\n.author-name {\n  font-size: 2rem;\n  text-align: center;\n  font-weight: 700;\n  color: #003366;\n  text-shadow: 0 1px 3px rgba(0,0,0,0.2);\n}\n\n/* Avatar */\n.avatar-img {\n  width: 220px;\n  height: 220px;\n  border-radius: 50%;\n  object-fit: cover;\n  border: 5px solid white;\n  box-shadow: 0 0 18px rgba(0, 123, 255, 0.5);\n  display: block;\n  margin: auto;\n  transition: transform 0.3s ease, box-shadow 0.3s ease;\n}\n\n.avatar-img:hover {\n  transform: scale(1.05);\n  box-shadow: 0 0 25px rgba(0, 123, 255, 0.8);\n}\n\n/* Contact */\n.contact-card p {\n  font-size: 1.2rem;\n  margin: 8px 0;\n  color: #333;\n}\n\n.contact-card a {\n  color: #0066cc;\n  font-weight: 600;\n  text-decoration: none;\n}\n\n.contact-card a:hover {\n  text-decoration: underline;\n}\n</style>\n\n",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 640,
+        "y": 280,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "594c65053507c552",
@@ -650,99 +791,6 @@
         ]
     },
     {
-        "id": "513644dd1aa09c60",
-        "type": "mqtt in",
-        "z": "b44ae44062688afa",
-        "name": "",
-        "topic": "esp32/led",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "190700413cb1a6c6",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 140,
-        "y": 160,
-        "wires": [
-            [
-                "cd03f548b971c9b8"
-            ]
-        ]
-    },
-    {
-        "id": "cd03f548b971c9b8",
-        "type": "ui-switch",
-        "z": "b44ae44062688afa",
-        "name": "led",
-        "label": "switch",
-        "group": "0380d13507b8278e",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "decouple": false,
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "className": "",
-        "layout": "row-spread",
-        "clickableArea": "switch",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 330,
-        "y": 160,
-        "wires": [
-            [
-                "7eb36cdf8613ce11"
-            ]
-        ]
-    },
-    {
-        "id": "7eb36cdf8613ce11",
-        "type": "function",
-        "z": "b44ae44062688afa",
-        "name": "function 4",
-        "func": "if (msg.payload === true) {\n    msg.payload = \"on\";  // Nếu payload là true, đổi thành \"on\"\n} else if (msg.payload === false) {\n    msg.payload = \"off\";  // Nếu payload là false, đổi thành \"off\"\n}\nreturn msg;\n\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 520,
-        "y": 160,
-        "wires": [
-            [
-                "0f3b903d8c83c02b"
-            ]
-        ]
-    },
-    {
-        "id": "0f3b903d8c83c02b",
-        "type": "mqtt out",
-        "z": "b44ae44062688afa",
-        "name": "",
-        "topic": "esp32/led",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "34ef396701f1d85f",
-        "x": 720,
-        "y": 160,
-        "wires": []
-    },
-    {
         "id": "d88936c88f38d296",
         "type": "ui-template",
         "z": "b44ae44062688afa",
@@ -750,18 +798,18 @@
         "page": "",
         "ui": "",
         "name": "HN",
-        "order": 2,
-        "width": 0,
+        "order": 6,
+        "width": 3,
         "height": 0,
         "head": "",
-        "format": "<template>\n  <div class=\"grid-container\">\n    <div v-for=\"slot in [1]\" :key=\"slot\" class=\"slot\" :id=\"'slot-' + slot\" :class=\"{\n      'occupied': payload === 'HIGH', \n      'empty': payload === 'LOW'\n    }\">\n      <p class=\"slot-title\">Slot {{ slot }}</p>\n      \n      <img \n        class=\"slot-img\" \n        :id=\"'img-' + slot\" \n        v-if=\"payload === 'HIGH'\" \n        :src=\"images[slot]\" \n        alt=\"'Car Slot ' + slot\" \n      />\n\n      <div class=\"slot-info\">\n        <p class=\"slot-status\">{{ payload === 'HIGH' ? 'OCCUPIED' : 'EMPTY' }}</p>\n        <p class=\"slot-timer\">Time: {{ formatTime(timers[slot]) }}</p>\n      </div>\n    </div>\n  </div>\n</template>\n\n<script>\nexport default {\n  data() {\n    return {\n      images: {\n        1: \"/car_topview.png\",  // Hình ảnh xe cho slot 1\n      },\n      payload: null,  // Nhận tín hiệu từ Function Node (HIGH / LOW)\n      timers: {\n        1: 0,\n      },\n      timerIntervals: {}, \n    };\n  },\n  methods: {\n    updatePayload(msg) {\n      this.payload = msg.payload;\n\n      if (this.payload === \"HIGH\" || this.payload === \"LOW\") {\n        if (this.payload === \"HIGH\") {\n          this.startTimer(1);\n        } else {\n          this.stopTimer(1);\n        }\n      }\n    },\n    startTimer(slot) {\n      if (this.timerIntervals[slot]) return;\n\n      this.timerIntervals[slot] = setInterval(() => {\n        this.timers[slot] += 1;\n      }, 1000);\n    },\n    stopTimer(slot) {\n      clearInterval(this.timerIntervals[slot]);\n      this.timerIntervals[slot] = null;\n      this.timers[slot] = 0;\n    },\n    formatTime(seconds) {\n      const minutes = Math.floor(seconds / 60);\n      const secs = seconds % 60;\n      return `${String(minutes).padStart(2, \"0\")}:${String(secs).padStart(2, \"0\")}`;\n    },\n  },\n  mounted() {\n    this.$watch(\"msg\", (newMsg) => {\n      if (newMsg) {\n        this.updatePayload(newMsg);\n      }\n    });\n  },\n};\n</script>\n\n<style scoped>\n.grid-container {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n  gap: 20px;\n  justify-content: center;\n  padding: 20px;\n  max-width: 1200px;\n  margin: 0 auto;\n}\n\n.slot {\n  width: 220px;\n  height: 300px;\n  border-radius: 15px;\n  padding: 20px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: space-between;\n  background: linear-gradient(135deg, #66cc66, #33cc33);  /* Màu gradient xanh */\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);\n  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;\n}\n\n.slot.occupied {\n  background: linear-gradient(135deg, #ff6666, #ff4444);  /* Màu gradient đỏ */\n  box-shadow: 0 8px 12px rgba(255, 0, 0, 0.3);\n}\n\n.slot.empty {\n  background: linear-gradient(135deg, #66cc66, #33cc33);  /* Màu xanh khi trống */\n}\n\n.slot-title {\n  font-size: 20px;\n  font-weight: bold;\n  color: white;\n  margin-bottom: 15px;\n}\n\n.slot-img {\n  width: 80%;\n  height: auto;\n  max-height: 100px;\n  object-fit: contain;\n}\n\n.slot-info {\n  text-align: center;\n}\n\n.slot-status {\n  font-size: 18px;\n  font-weight: bold;\n  color: white;\n  text-transform: uppercase;\n}\n\n.slot-timer {\n  font-size: 16px;\n  color: white;\n}\n\n@media (max-width: 768px) {\n  .grid-container {\n    grid-template-columns: 1fr;\n  }\n}\n</style>\n\n\n",
+        "format": "<template>\n  <div class=\"grid-container\">\n    <div class=\"slot\" :class=\"{\n      'occupied': payload === 'LOW',\n      'empty': payload === 'HIGH'\n    }\">\n\n      <p class=\"slot-title\">Animal Slot 1</p>\n\n      <!-- Hình con vật chỉ hiện khi LOW -->\n      <img \n        v-if=\"payload === 'LOW'\"\n        class=\"animal-img\"\n        src=\"/animal.png\"\n        alt=\"Animal\"\n      />\n\n      <p class=\"slot-status\">\n        {{ payload === 'LOW' ? 'OCCUPIED' : 'EMPTY' }}\n      </p>\n\n    </div>\n  </div>\n</template>\n\n<script>\nexport default {\n  data() {\n    return {\n      payload: null,   // HIGH / LOW từ MQTT → function node gửi qua\n    };\n  },\n\n  methods: {\n    updatePayload(msg) {\n      this.payload = msg.payload;\n    }\n  },\n\n  mounted() {\n    this.$watch(\"msg\", (newMsg) => {\n      if (newMsg) {\n        this.updatePayload(newMsg);\n      }\n    });\n  }\n};\n</script>\n\n<style scoped>\n.grid-container {\n  display: flex;\n  justify-content: center;\n  padding: 20px;\n}\n\n.slot {\n  width: 240px;\n  height: 300px;\n  border-radius: 18px;\n  padding: 20px;\n  text-align: center;\n\n  background: linear-gradient(145deg, #66cc66, #33aa33);  \n  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);\n\n  transition: 0.3s ease;\n}\n\n/* Khi có vật → đỏ */\n.slot.occupied {\n  background: linear-gradient(145deg, #ff6666, #ff3333);\n  box-shadow: 0 10px 25px rgba(255, 0, 0, 0.3);\n}\n\n/* Khi trống → xanh */\n.slot.empty {\n  background: linear-gradient(145deg, #66cc66, #33aa33);\n}\n\n.slot-title {\n  font-size: 22px;\n  color: white;\n  font-weight: bold;\n}\n\n.animal-img {\n  width: 120px;\n  margin-top: 20px;\n  filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3));\n}\n\n.slot-status {\n  margin-top: 20px;\n  font-size: 20px;\n  font-weight: bold;\n  color: white;\n}\n</style>\n",
         "storeOutMessages": true,
         "passthru": true,
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 1130,
-        "y": 580,
+        "x": 630,
+        "y": 1000,
         "wires": [
             []
         ]
@@ -792,8 +840,8 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 730,
-        "y": 580,
+        "x": 230,
+        "y": 1000,
         "wires": [
             [
                 "d63ea4587764490f"
@@ -805,15 +853,15 @@
         "type": "function",
         "z": "b44ae44062688afa",
         "name": "function 6",
-        "func": "var msgPayload = msg.payload;  // Nhận tín hiệu từ Switch Node\n\n// Kiểm tra tín hiệu từ Switch (ON/OFF)\nif (msgPayload === true) {  // Khi switch bật\n    msg.payload = \"HIGH\";  // Trạng thái OCCUPIED (màu đỏ)\n} else if (msgPayload === false) {  // Khi switch tắt\n    msg.payload = \"LOW\";   // Trạng thái EMPTY (màu xanh)\n}\n\nreturn msg;  // Gửi tín hiệu đã xử lý đến ui_template Node\n",
+        "func": "let val = msg.payload;\n\n// ---- Khi SWITCH bật ----\nif (val === true || val === 1 || val === \"1\") {\n    msg.payload = \"LOW\";     // LOW = bị che → OCCUPIED\n}\n\n// ---- Khi SWITCH tắt ----\nelse if (val === false || val === 0 || val === \"0\") {\n    msg.payload = \"HIGH\";    // HIGH = trống → EMPTY\n}\n\nreturn msg;\n\n\n\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 940,
-        "y": 580,
+        "x": 440,
+        "y": 1000,
         "wires": [
             [
                 "d88936c88f38d296"
@@ -1037,6 +1085,267 @@
         ]
     },
     {
+        "id": "c26fd4794cd6020c",
+        "type": "inject",
+        "z": "b44ae44062688afa",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 320,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8b60414ef3fbf4d0",
+        "type": "ui-template",
+        "z": "b44ae44062688afa",
+        "group": "77ec1b5a0e040952",
+        "page": "",
+        "ui": "",
+        "name": "HN",
+        "order": 5,
+        "width": 3,
+        "height": 0,
+        "head": "",
+        "format": "<template>\n  <div class=\"grid-container\">\n    <div v-for=\"slot in [1]\" :key=\"slot\" class=\"slot\" :id=\"'slot-' + slot\" :class=\"{\n      'occupied': payload === 'HIGH', \n      'empty': payload === 'LOW'\n    }\">\n      <p class=\"slot-title\">Slot {{ slot }}</p>\n      \n      <img \n        class=\"slot-img\" \n        :id=\"'img-' + slot\" \n        v-if=\"payload === 'HIGH'\" \n        :src=\"images[slot]\" \n        alt=\"'Car Slot ' + slot\" \n      />\n\n      <div class=\"slot-info\">\n        <p class=\"slot-status\">{{ payload === 'HIGH' ? 'OCCUPIED' : 'EMPTY' }}</p>\n        <p class=\"slot-timer\">Time: {{ formatTime(timers[slot]) }}</p>\n      </div>\n    </div>\n  </div>\n</template>\n\n<script>\nexport default {\n  data() {\n    return {\n      images: {\n        1: \"/car_topview.png\",  // Hình ảnh xe cho slot 1\n      },\n      payload: null,  // Nhận tín hiệu từ Function Node (HIGH / LOW)\n      timers: {\n        1: 0,\n      },\n      timerIntervals: {}, \n    };\n  },\n  methods: {\n    updatePayload(msg) {\n      this.payload = msg.payload;\n\n      if (this.payload === \"HIGH\" || this.payload === \"LOW\") {\n        if (this.payload === \"HIGH\") {\n          this.startTimer(1);\n        } else {\n          this.stopTimer(1);\n        }\n      }\n    },\n    startTimer(slot) {\n      if (this.timerIntervals[slot]) return;\n\n      this.timerIntervals[slot] = setInterval(() => {\n        this.timers[slot] += 1;\n      }, 1000);\n    },\n    stopTimer(slot) {\n      clearInterval(this.timerIntervals[slot]);\n      this.timerIntervals[slot] = null;\n      this.timers[slot] = 0;\n    },\n    formatTime(seconds) {\n      const minutes = Math.floor(seconds / 60);\n      const secs = seconds % 60;\n      return `${String(minutes).padStart(2, \"0\")}:${String(secs).padStart(2, \"0\")}`;\n    },\n  },\n  mounted() {\n    this.$watch(\"msg\", (newMsg) => {\n      if (newMsg) {\n        this.updatePayload(newMsg);\n      }\n    });\n  },\n};\n</script>\n\n<style scoped>\n.grid-container {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n  gap: 20px;\n  justify-content: center;\n  padding: 20px;\n  max-width: 1200px;\n  margin: 0 auto;\n}\n\n.slot {\n  width: 220px;\n  height: 300px;\n  border-radius: 15px;\n  padding: 20px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: space-between;\n  background: linear-gradient(135deg, #66cc66, #33cc33);  /* Màu gradient xanh */\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);\n  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;\n}\n\n.slot.occupied {\n  background: linear-gradient(135deg, #ff6666, #ff4444);  /* Màu gradient đỏ */\n  box-shadow: 0 8px 12px rgba(255, 0, 0, 0.3);\n}\n\n.slot.empty {\n  background: linear-gradient(135deg, #66cc66, #33cc33);  /* Màu xanh khi trống */\n}\n\n.slot-title {\n  font-size: 20px;\n  font-weight: bold;\n  color: white;\n  margin-bottom: 15px;\n}\n\n.slot-img {\n  width: 80%;\n  height: auto;\n  max-height: 100px;\n  object-fit: contain;\n}\n\n.slot-info {\n  text-align: center;\n}\n\n.slot-status {\n  font-size: 18px;\n  font-weight: bold;\n  color: white;\n  text-transform: uppercase;\n}\n\n.slot-timer {\n  font-size: 16px;\n  color: white;\n}\n\n@media (max-width: 768px) {\n  .grid-container {\n    grid-template-columns: 1fr;\n  }\n}\n</style>\n\n\n",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 630,
+        "y": 1080,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9991ba27320cc27c",
+        "type": "ui-switch",
+        "z": "b44ae44062688afa",
+        "name": "Paking",
+        "label": "switch",
+        "group": "77ec1b5a0e040952",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "switch",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 230,
+        "y": 1080,
+        "wires": [
+            [
+                "32f943606bf78a2a"
+            ]
+        ]
+    },
+    {
+        "id": "32f943606bf78a2a",
+        "type": "function",
+        "z": "b44ae44062688afa",
+        "name": "function 4",
+        "func": "var msgPayload = msg.payload;  // Nhận tín hiệu từ Switch Node\n\n// Kiểm tra tín hiệu từ Switch (ON/OFF)\nif (msgPayload === true) {  // Khi switch bật\n    msg.payload = \"HIGH\";  // Trạng thái OCCUPIED (màu đỏ)\n} else if (msgPayload === false) {  // Khi switch tắt\n    msg.payload = \"LOW\";   // Trạng thái EMPTY (màu xanh)\n}\n\nreturn msg;  // Gửi tín hiệu đã xử lý đến ui_template Node\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 1080,
+        "wires": [
+            [
+                "8b60414ef3fbf4d0"
+            ]
+        ]
+    },
+    {
+        "id": "b6a79d36ec140a01",
+        "type": "ui-template",
+        "z": "b44ae44062688afa",
+        "group": "77ec1b5a0e040952",
+        "page": "",
+        "ui": "",
+        "name": "HN",
+        "order": 4,
+        "width": 3,
+        "height": 0,
+        "head": "",
+        "format": "<template>\n  <div class=\"grid-container\">\n    <div v-for=\"slot in [1]\" :key=\"slot\" class=\"slot\" :id=\"'slot-' + slot\" :class=\"{\n      'occupied': payload === 'HIGH', \n      'empty': payload === 'LOW'\n    }\">\n      <p class=\"slot-title\">Slot {{ slot }}</p>\n      \n      <img \n        class=\"slot-img\" \n        :id=\"'img-' + slot\" \n        v-if=\"payload === 'HIGH'\" \n        :src=\"images[slot]\" \n        alt=\"'Car Slot ' + slot\" \n      />\n\n      <div class=\"slot-info\">\n        <p class=\"slot-status\">{{ payload === 'HIGH' ? 'OCCUPIED' : 'EMPTY' }}</p>\n        <p class=\"slot-timer\">Time: {{ formatTime(timers[slot]) }}</p>\n      </div>\n    </div>\n  </div>\n</template>\n\n<script>\nexport default {\n  data() {\n    return {\n      images: {\n        1: \"/car_topview.png\",  // Hình ảnh xe cho slot 1\n      },\n      payload: null,  // Nhận tín hiệu từ Function Node (HIGH / LOW)\n      timers: {\n        1: 0,\n      },\n      timerIntervals: {}, \n    };\n  },\n  methods: {\n    updatePayload(msg) {\n      this.payload = msg.payload;\n\n      if (this.payload === \"HIGH\" || this.payload === \"LOW\") {\n        if (this.payload === \"HIGH\") {\n          this.startTimer(1);\n        } else {\n          this.stopTimer(1);\n        }\n      }\n    },\n    startTimer(slot) {\n      if (this.timerIntervals[slot]) return;\n\n      this.timerIntervals[slot] = setInterval(() => {\n        this.timers[slot] += 1;\n      }, 1000);\n    },\n    stopTimer(slot) {\n      clearInterval(this.timerIntervals[slot]);\n      this.timerIntervals[slot] = null;\n      this.timers[slot] = 0;\n    },\n    formatTime(seconds) {\n      const minutes = Math.floor(seconds / 60);\n      const secs = seconds % 60;\n      return `${String(minutes).padStart(2, \"0\")}:${String(secs).padStart(2, \"0\")}`;\n    },\n  },\n  mounted() {\n    this.$watch(\"msg\", (newMsg) => {\n      if (newMsg) {\n        this.updatePayload(newMsg);\n      }\n    });\n  },\n};\n</script>\n\n<style scoped>\n.grid-container {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n  gap: 20px;\n  justify-content: center;\n  padding: 20px;\n  max-width: 1200px;\n  margin: 0 auto;\n}\n\n.slot {\n  width: 220px;\n  height: 300px;\n  border-radius: 15px;\n  padding: 20px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: space-between;\n  background: linear-gradient(135deg, #66cc66, #33cc33);  /* Màu gradient xanh */\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);\n  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;\n}\n\n.slot.occupied {\n  background: linear-gradient(135deg, #ff6666, #ff4444);  /* Màu gradient đỏ */\n  box-shadow: 0 8px 12px rgba(255, 0, 0, 0.3);\n}\n\n.slot.empty {\n  background: linear-gradient(135deg, #66cc66, #33cc33);  /* Màu xanh khi trống */\n}\n\n.slot-title {\n  font-size: 20px;\n  font-weight: bold;\n  color: white;\n  margin-bottom: 15px;\n}\n\n.slot-img {\n  width: 80%;\n  height: auto;\n  max-height: 100px;\n  object-fit: contain;\n}\n\n.slot-info {\n  text-align: center;\n}\n\n.slot-status {\n  font-size: 18px;\n  font-weight: bold;\n  color: white;\n  text-transform: uppercase;\n}\n\n.slot-timer {\n  font-size: 16px;\n  color: white;\n}\n\n@media (max-width: 768px) {\n  .grid-container {\n    grid-template-columns: 1fr;\n  }\n}\n</style>\n\n\n",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 630,
+        "y": 1160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "48ec9517c0a177b8",
+        "type": "ui-switch",
+        "z": "b44ae44062688afa",
+        "name": "Paking",
+        "label": "switch",
+        "group": "77ec1b5a0e040952",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "switch",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 230,
+        "y": 1160,
+        "wires": [
+            [
+                "cfc64dd450c9bd1f"
+            ]
+        ]
+    },
+    {
+        "id": "cfc64dd450c9bd1f",
+        "type": "function",
+        "z": "b44ae44062688afa",
+        "name": "function 16",
+        "func": "var msgPayload = msg.payload;  // Nhận tín hiệu từ Switch Node\n\n// Kiểm tra tín hiệu từ Switch (ON/OFF)\nif (msgPayload === true) {  // Khi switch bật\n    msg.payload = \"HIGH\";  // Trạng thái OCCUPIED (màu đỏ)\n} else if (msgPayload === false) {  // Khi switch tắt\n    msg.payload = \"LOW\";   // Trạng thái EMPTY (màu xanh)\n}\n\nreturn msg;  // Gửi tín hiệu đã xử lý đến ui_template Node\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 1160,
+        "wires": [
+            [
+                "b6a79d36ec140a01"
+            ]
+        ]
+    },
+    {
+        "id": "e575f51247d98003",
+        "type": "ui-template",
+        "z": "b44ae44062688afa",
+        "group": "77ec1b5a0e040952",
+        "page": "",
+        "ui": "",
+        "name": "HN",
+        "order": 3,
+        "width": 3,
+        "height": 0,
+        "head": "",
+        "format": "<template>\n  <div class=\"grid-container\">\n    <div v-for=\"slot in [1]\" :key=\"slot\" class=\"slot\" :id=\"'slot-' + slot\" :class=\"{\n      'occupied': payload === 'HIGH', \n      'empty': payload === 'LOW'\n    }\">\n      <p class=\"slot-title\">Slot {{ slot }}</p>\n      \n      <img \n        class=\"slot-img\" \n        :id=\"'img-' + slot\" \n        v-if=\"payload === 'HIGH'\" \n        :src=\"images[slot]\" \n        alt=\"'Car Slot ' + slot\" \n      />\n\n      <div class=\"slot-info\">\n        <p class=\"slot-status\">{{ payload === 'HIGH' ? 'OCCUPIED' : 'EMPTY' }}</p>\n        <p class=\"slot-timer\">Time: {{ formatTime(timers[slot]) }}</p>\n      </div>\n    </div>\n  </div>\n</template>\n\n<script>\nexport default {\n  data() {\n    return {\n      images: {\n        1: \"/car_topview.png\",  // Hình ảnh xe cho slot 1\n      },\n      payload: null,  // Nhận tín hiệu từ Function Node (HIGH / LOW)\n      timers: {\n        1: 0,\n      },\n      timerIntervals: {}, \n    };\n  },\n  methods: {\n    updatePayload(msg) {\n      this.payload = msg.payload;\n\n      if (this.payload === \"HIGH\" || this.payload === \"LOW\") {\n        if (this.payload === \"HIGH\") {\n          this.startTimer(1);\n        } else {\n          this.stopTimer(1);\n        }\n      }\n    },\n    startTimer(slot) {\n      if (this.timerIntervals[slot]) return;\n\n      this.timerIntervals[slot] = setInterval(() => {\n        this.timers[slot] += 1;\n      }, 1000);\n    },\n    stopTimer(slot) {\n      clearInterval(this.timerIntervals[slot]);\n      this.timerIntervals[slot] = null;\n      this.timers[slot] = 0;\n    },\n    formatTime(seconds) {\n      const minutes = Math.floor(seconds / 60);\n      const secs = seconds % 60;\n      return `${String(minutes).padStart(2, \"0\")}:${String(secs).padStart(2, \"0\")}`;\n    },\n  },\n  mounted() {\n    this.$watch(\"msg\", (newMsg) => {\n      if (newMsg) {\n        this.updatePayload(newMsg);\n      }\n    });\n  },\n};\n</script>\n\n<style scoped>\n.grid-container {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n  gap: 20px;\n  justify-content: center;\n  padding: 20px;\n  max-width: 1200px;\n  margin: 0 auto;\n}\n\n.slot {\n  width: 220px;\n  height: 300px;\n  border-radius: 15px;\n  padding: 20px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: space-between;\n  background: linear-gradient(135deg, #66cc66, #33cc33);  /* Màu gradient xanh */\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);\n  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;\n}\n\n.slot.occupied {\n  background: linear-gradient(135deg, #ff6666, #ff4444);  /* Màu gradient đỏ */\n  box-shadow: 0 8px 12px rgba(255, 0, 0, 0.3);\n}\n\n.slot.empty {\n  background: linear-gradient(135deg, #66cc66, #33cc33);  /* Màu xanh khi trống */\n}\n\n.slot-title {\n  font-size: 20px;\n  font-weight: bold;\n  color: white;\n  margin-bottom: 15px;\n}\n\n.slot-img {\n  width: 80%;\n  height: auto;\n  max-height: 100px;\n  object-fit: contain;\n}\n\n.slot-info {\n  text-align: center;\n}\n\n.slot-status {\n  font-size: 18px;\n  font-weight: bold;\n  color: white;\n  text-transform: uppercase;\n}\n\n.slot-timer {\n  font-size: 16px;\n  color: white;\n}\n\n@media (max-width: 768px) {\n  .grid-container {\n    grid-template-columns: 1fr;\n  }\n}\n</style>\n\n\n",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 630,
+        "y": 1240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b3c1ed8098e55f24",
+        "type": "ui-switch",
+        "z": "b44ae44062688afa",
+        "name": "Paking",
+        "label": "switch",
+        "group": "77ec1b5a0e040952",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "switch",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 230,
+        "y": 1240,
+        "wires": [
+            [
+                "731156cf92c9f81e"
+            ]
+        ]
+    },
+    {
+        "id": "731156cf92c9f81e",
+        "type": "function",
+        "z": "b44ae44062688afa",
+        "name": "function 20",
+        "func": "var msgPayload = msg.payload;  // Nhận tín hiệu từ Switch Node\n\n// Kiểm tra tín hiệu từ Switch (ON/OFF)\nif (msgPayload === true) {  // Khi switch bật\n    msg.payload = \"HIGH\";  // Trạng thái OCCUPIED (màu đỏ)\n} else if (msgPayload === false) {  // Khi switch tắt\n    msg.payload = \"LOW\";   // Trạng thái EMPTY (màu xanh)\n}\n\nreturn msg;  // Gửi tín hiệu đã xử lý đến ui_template Node\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 1240,
+        "wires": [
+            [
+                "e575f51247d98003"
+            ]
+        ]
+    },
+    {
         "id": "5b592357ae0f89e2",
         "type": "mqtt in",
         "z": "fd60efe58420a42c",
@@ -1084,7 +1393,7 @@
         "name": "LED1",
         "label": "switch",
         "group": "7df3ae7d0e8e67be",
-        "order": 4,
+        "order": 1,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -1258,7 +1567,7 @@
         "page": "",
         "ui": "",
         "name": "",
-        "order": 1,
+        "order": 4,
         "width": 0,
         "height": 0,
         "head": "",
@@ -1340,7 +1649,7 @@
         "type": "function",
         "z": "fd60efe58420a42c",
         "name": "function 10",
-        "func": "// ép về 1 hoặc 0\nlet state = (msg.payload == \"1\") ? \"1\" : \"0\";\n\n// Gửi lại cùng payload cho tất cả switch đang nối chung\nmsg.payload = state;\nreturn msg;\n\n\n",
+        "func": "let p = msg.payload.toString();\n\nif (p === \"1\") {\n    msg.payload = true;  // bật switch\n} \nelse if (p === \"0\") {\n    msg.payload = false; // tắt switch\n} \nelse {\n    return null;         // giá trị rác → bỏ qua\n}\n\nreturn msg;\n\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -1509,7 +1818,7 @@
         "name": "LED3",
         "label": "switch",
         "group": "eb2842218c504430",
-        "order": 4,
+        "order": 1,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -1544,7 +1853,7 @@
         "page": "",
         "ui": "",
         "name": "",
-        "order": 2,
+        "order": 4,
         "width": 0,
         "height": 0,
         "head": "",
@@ -1683,7 +1992,7 @@
         "page": "",
         "ui": "",
         "name": "",
-        "order": 1,
+        "order": 2,
         "width": 0,
         "height": 0,
         "head": "",
