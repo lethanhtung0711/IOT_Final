@@ -73,7 +73,10 @@ Hệ thống chăm sóc thú cưng thông minh được xây dựng nhằm giả
 | SHT30 | SDA/SCL | 21 / 22 |
 | MQ-2 | AOUT | 32 |
 | LDR | AOUT | 33 |
-| LED | OUT | 23 |
+| LED1 | OUT | 23 |
+| LED2| OUT | 19 |
+| LED3 | OUT | 18 |
+| LED4 | OUT | 5 |
 | Fan | OUT | 14 |
 
 ---
