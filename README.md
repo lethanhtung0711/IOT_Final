@@ -1,12 +1,12 @@
-# 🐾 SMART PET CARE SYSTEM – HỆ THỐNG CHĂM SÓC THÚ CƯNG THÔNG MINH
+#  SMART PET CARE SYSTEM – HỆ THỐNG CHĂM SÓC THÚ CƯNG THÔNG MINH
 
-## 📌 Mô tả đề tài
+##  Mô tả đề tài
 Trong cuộc sống hiện đại, thú cưng ngày càng được xem là một thành viên trong gia đình. Tuy nhiên, việc chăm sóc chúng đòi hỏi nhiều thời gian: cho ăn đúng giờ, theo dõi môi trường sống, đảm bảo an toàn…  
 Hệ thống chăm sóc thú cưng thông minh được xây dựng nhằm giải quyết các vấn đề này thông qua IoT, cảm biến và điều khiển tự động.
 
 ---
 
-## 📖 Mục lục
+##  Mục lục
 - 1. Problem Statement  
 - 2. Main Content  
 - 3. Block Diagram  
@@ -18,13 +18,13 @@ Hệ thống chăm sóc thú cưng thông minh được xây dựng nhằm giả
 
 # 1. Problem Statement
 
-### 🔍 Nhu cầu thực tế
+###  Nhu cầu thực tế
 - Chủ bận rộn → quên cho ăn hoặc thay nước.  
 - Không thể theo dõi thú cưng khi đi làm hoặc đi xa.  
 - Môi trường sống thay đổi (nhiệt độ, độ ẩm, khí gas) → gây nguy hiểm.  
 - Không biết thú cưng đang có trong chuồng hay đã đi ra ngoài.
 
-### 💡 Nguồn cảm hứng
+###  Nguồn cảm hứng
 - Nhiều thú cưng gặp nguy hiểm do môi trường sống không đảm bảo.  
 - Mong muốn tạo ra một hệ thống giá rẻ, dễ triển khai.
 
@@ -32,22 +32,22 @@ Hệ thống chăm sóc thú cưng thông minh được xây dựng nhằm giả
 
 # 2. Main Content
 
-## 🧰 2.1. Hardware
+##  2.1. Hardware
 - ESP32 DevKit V1  
 - 4 × IR Sensor  
 - 1 × Servo SG90  
-- 1 × SHT30 / DHT22 (Temperature + Humidity)  
-- 1 × MQ-2 gas sensor  
+- 1 × SHT30  
 - 1 × LDR light sensor  
 - Quạt mini  
 - Đèn LED  
+- Máy bơm mini 5V
 
-## 🖥 2.2. Software
+##  2.2. Software
 - Node-RED Dashboard  
 - MQTT Broker (EMQX)  
 - PlatformIO (Arduino C++)  
 
-## 🧠 2.3. Concept
+##  2.3. Concept
 - Giám sát vị trí thú cưng theo thời gian thực  
 - Cho ăn tự động bằng servo  
 - Theo dõi môi trường liên tục  
@@ -55,8 +55,7 @@ Hệ thống chăm sóc thú cưng thông minh được xây dựng nhằm giả
 
 ---
 
-# 3. Block Diagram
-*(Thay bằng ảnh thật)*  
+# 3. Block Diagram  
 ![Block Diagram](./images/3.png)
 
 ---
