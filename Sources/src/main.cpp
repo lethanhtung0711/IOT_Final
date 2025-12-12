@@ -73,7 +73,7 @@ namespace
     const char *topic_ir3   = "esp32/ir3";
     const char *topic_ir4   = "esp32/ir4";
 
-    // Danh sách topic cần subscribe
+    // 
     const char *subscribe_list[] = {
         topic_servo,
         topic_led1, topic_led2, topic_led3, topic_led4,
@@ -86,9 +86,7 @@ namespace
     String client_id = String("ESP32-") + WiFi.macAddress();
 }
 
-// ======================================================
-//                  READ SHT30 + Publish
-// ======================================================
+// READ SHT30 + Publish
 void publishSHT30()
 {
     float t = sht30.readTemperature();
@@ -114,9 +112,8 @@ void publishSHT30()
     Serial.println(json);
 }
 
-// ======================================================
-//                  READ IR SENSORS
-// ======================================================
+// READ IR SENSORS
+// 
 void publishIR()
 {
     const char *ir1 = digitalRead(IR1_PIN) ? "HIGH" : "LOW";
@@ -141,7 +138,7 @@ void mqttCallback(char *topic, uint8_t *payload, unsigned int len)
 
     Serial.printf("[MQTT] %s = %s\n", topic, msg.c_str());
 
-    // ===== Servo: quay 90 rồi tự quay về 0 =====
+
     if (!strcmp(topic, topic_servo)) {
         if (msg == "1") {
             Serial.println("[SERVO] Rotate 90 then return");
@@ -171,6 +168,7 @@ void mqttCallback(char *topic, uint8_t *payload, unsigned int len)
         return;
     }
 
+    // FAN 
     // FAN 
     if (!strcmp(topic, topic_fan)) {
         bool st = (msg == "1");
@@ -240,7 +238,7 @@ void setup()
     delay(1000);
 
     // SHT30
-    Wire.begin(21, 22);         // SCL=22, SDA=21
+    Wire.begin(21, 22);         
     if (!sht30.begin(0x44)) {
         Serial.println("Could not find SHT30 sensor!");
         lcd.clear();
@@ -255,15 +253,12 @@ void setup()
     lcd.print("System Ready");
 
     // Timers
-    shtTicker.attach(5, publishSHT30); // mỗi 5s đọc SHT30
-    irTicker.attach(2, publishIR);     // mỗi 2s đọc IR
+    shtTicker.attach(5, publishSHT30); 
+    irTicker.attach(2, publishIR);    
 
     Serial.println("Setup done.");
 }
 
-// ======================================================
-//                        LOOP
-// ======================================================
 void loop()
 {
     MQTT::reconnect(mqttClient,
