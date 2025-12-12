@@ -91,15 +91,19 @@ Hệ thống chăm sóc thú cưng thông minh được xây dựng nhằm giả
 ![Dash1](./images/IOT_Board.png)
 - Node-red dashboard bao gồm 5 trang: Home, Hệ thống giám sát, LED, FOOD 
 <p align="center">
-  <img src="./images/HOME.png" width="600">
+  <img src="./images/HOME.png" width="400">
 </p>
  
 - Hình dưới minh họa giao diện Node-RED Dashboard của hệ thống.
 Hai đồng hồ phía trên hiển thị nhiệt độ và độ ẩm hiện tại theo thời gian thực.
 Bên dưới là hai biểu đồ đường thể hiện lịch sử thay đổi nhiệt độ và độ ẩm, giúp theo dõi xu hướng môi trường trong chuồng thú cưng một cách trực quan.
 ![Dash3](./images/HN1.png)  
+- Giao diện FOOD
+
+Giao diện được chia thành 2 phần :
+Khu vực cho ăn: Hai nút “Cho ăn” và “Ngừng” dễ thao tác.
+Khu vực Occupied: Các công tắc hiển thị trạng thái từng slot
 ![Dash4](./images/HN2.png)  
-![Dash5](./images/6.png)
 
 ---
 
