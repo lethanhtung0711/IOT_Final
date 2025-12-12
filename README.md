@@ -84,7 +84,8 @@ Hệ thống chăm sóc thú cưng thông minh được xây dựng nhằm giả
 # 5. Results
 
 ## 5.1. Mô hình
-![Model](./images/8.png)
+![Model](./images/HNA.png)
+![Model](./images/HNB.png)
 
 ## 5.2. Node-RED Dashboard
 ![Dash1](./images/IOT_Board.png)

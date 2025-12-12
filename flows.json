@@ -210,7 +210,7 @@
         "colors": {
             "surface": "#ffffff",
             "primary": "#0094ce",
-            "bgPage": "#ffffff",
+            "bgPage": "#f2bbc0",
             "groupBg": "#ffffff",
             "groupOutline": "#cccccc"
         },
@@ -236,7 +236,7 @@
         "name": "Hệ thống giám sát ",
         "ui": "0e8f91213022b9ea",
         "path": "/page1",
-        "icon": "home",
+        "icon": "bell",
         "layout": "grid",
         "theme": "b952a29597227932",
         "breakpoints": [
@@ -300,7 +300,7 @@
         "name": "LED",
         "ui": "0e8f91213022b9ea",
         "path": "/page2",
-        "icon": "home",
+        "icon": "lightbulb",
         "layout": "grid",
         "theme": "b952a29597227932",
         "breakpoints": [
@@ -411,7 +411,7 @@
     {
         "id": "2629375e52979a42",
         "type": "ui-group",
-        "name": "Group 8",
+        "name": "CONTACT",
         "page": "e35b7948e04fcdb1",
         "width": 6,
         "height": 1,
@@ -425,7 +425,7 @@
     {
         "id": "b127297554aff654",
         "type": "ui-group",
-        "name": "Group 9",
+        "name": "TEMP AND HUMI",
         "page": "e35b7948e04fcdb1",
         "width": 6,
         "height": 1,
@@ -442,7 +442,7 @@
         "name": "FOOD",
         "ui": "0e8f91213022b9ea",
         "path": "/page4",
-        "icon": "home",
+        "icon": "slack",
         "layout": "grid",
         "theme": "b952a29597227932",
         "breakpoints": [
@@ -469,8 +469,8 @@
         ],
         "order": 4,
         "className": "",
-        "visible": true,
-        "disabled": false
+        "visible": "true",
+        "disabled": "false"
     },
     {
         "id": "c2795566d02a9df2",
@@ -603,7 +603,7 @@
         "type": "function",
         "z": "01b01358d6bea386",
         "name": "function 21",
-        "func": "let p = msg.payload;\n\n// Nếu payload là OBJECT → dùng luôn\nif (typeof p === \"object\") {\n    msg.payload = {\n        temperature: Number(p.temperature),\n        humidity: Number(p.humidity)\n    };\n    return msg;\n}\n\n// Nếu payload là STRING → parse JSON\nif (typeof p === \"string\") {\n    try {\n        const parsed = JSON.parse(p);\n        msg.payload = {\n            temperature: Number(parsed.temperature),\n            humidity: Number(parsed.humidity)\n        };\n        return msg;\n    } catch (e) {\n        node.warn(\"JSON parse error - payload không hợp lệ:\");\n        node.warn(p);\n        return null;\n    }\n}\n\nnode.warn(\"Payload type không được hỗ trợ:\");\nnode.warn(typeof p);\nreturn null;\n\n",
+        "func": "let d = msg.payload;\n\n// Chuỗi JSON → convert sang object\nif (typeof d === \"string\") {\n    try { d = JSON.parse(d); }\n    catch (e) {\n        node.warn(\"Invalid JSON from ESP32\");\n        return null;\n    }\n}\n\n// Gửi cả hai giá trị sang UI Template\nmsg.payload = {\n    temperature: d.temperature,\n    humidity: d.humidity\n};\n\nreturn msg;\n\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -647,8 +647,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 150,
-        "y": 280,
+        "x": 330,
+        "y": 140,
         "wires": [
             [
                 "3db424ce092aed97",
@@ -669,8 +669,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 150,
-        "y": 540,
+        "x": 330,
+        "y": 400,
         "wires": [
             [
                 "eecdad68f2a15a22",
@@ -693,8 +693,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 340,
-        "y": 280,
+        "x": 520,
+        "y": 140,
         "wires": []
     },
     {
@@ -709,8 +709,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 440,
-        "y": 460,
+        "x": 620,
+        "y": 320,
         "wires": []
     },
     {
@@ -725,8 +725,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 440,
-        "y": 540,
+        "x": 620,
+        "y": 400,
         "wires": [
             [
                 "182435e2122bc344"
@@ -745,8 +745,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 440,
-        "y": 620,
+        "x": 620,
+        "y": 480,
         "wires": [
             [
                 "dee41f10aabf3b40"
@@ -765,8 +765,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 340,
-        "y": 380,
+        "x": 520,
+        "y": 240,
         "wires": [
             [
                 "6ed6d5714b67e2d5"
@@ -827,8 +827,8 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 610,
-        "y": 540,
+        "x": 790,
+        "y": 400,
         "wires": [
             []
         ]
@@ -887,8 +887,8 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 620,
-        "y": 620,
+        "x": 800,
+        "y": 480,
         "wires": [
             []
         ]
@@ -911,8 +911,8 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 530,
-        "y": 1120,
+        "x": 710,
+        "y": 980,
         "wires": [
             []
         ]
@@ -943,8 +943,8 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 130,
-        "y": 1360,
+        "x": 310,
+        "y": 1220,
         "wires": [
             [
                 "731156cf92c9f81e"
@@ -963,8 +963,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 340,
-        "y": 1120,
+        "x": 520,
+        "y": 980,
         "wires": [
             [
                 "d88936c88f38d296"
@@ -984,8 +984,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 140,
-        "y": 920,
+        "x": 320,
+        "y": 780,
         "wires": [
             [
                 "6a7807764618c187"
@@ -1006,8 +1006,8 @@
         "correl": "",
         "expiry": "",
         "broker": "85868b828ba66d5c",
-        "x": 1100,
-        "y": 920,
+        "x": 1280,
+        "y": 780,
         "wires": []
     },
     {
@@ -1028,8 +1028,8 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 690,
-        "y": 920,
+        "x": 870,
+        "y": 780,
         "wires": [
             [
                 "d084833bb342d3dc"
@@ -1048,8 +1048,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 890,
-        "y": 920,
+        "x": 1070,
+        "y": 780,
         "wires": [
             [
                 "ecc1304144115066"
@@ -1082,8 +1082,8 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 510,
-        "y": 920,
+        "x": 690,
+        "y": 780,
         "wires": [
             [
                 "c860844a55395a91"
@@ -1102,8 +1102,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 330,
-        "y": 920,
+        "x": 510,
+        "y": 780,
         "wires": [
             [
                 "7358a5c59187de57"
@@ -1124,8 +1124,8 @@
         "correl": "",
         "expiry": "",
         "broker": "722bf71392a75930",
-        "x": 930,
-        "y": 380,
+        "x": 1110,
+        "y": 240,
         "wires": []
     },
     {
@@ -1140,8 +1140,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 710,
-        "y": 380,
+        "x": 890,
+        "y": 240,
         "wires": [
             [
                 "2407bd39e994ca5a"
@@ -1179,8 +1179,8 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 530,
-        "y": 380,
+        "x": 710,
+        "y": 240,
         "wires": [
             [
                 "b3c34b7ecca8409f"
@@ -1205,8 +1205,8 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 530,
-        "y": 1200,
+        "x": 710,
+        "y": 1060,
         "wires": [
             []
         ]
@@ -1237,8 +1237,8 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 130,
-        "y": 1200,
+        "x": 310,
+        "y": 1060,
         "wires": [
             [
                 "32f943606bf78a2a"
@@ -1257,8 +1257,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 340,
-        "y": 1200,
+        "x": 520,
+        "y": 1060,
         "wires": [
             [
                 "8b60414ef3fbf4d0"
@@ -1283,8 +1283,8 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 530,
-        "y": 1280,
+        "x": 710,
+        "y": 1140,
         "wires": [
             []
         ]
@@ -1315,8 +1315,8 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 130,
-        "y": 1280,
+        "x": 310,
+        "y": 1140,
         "wires": [
             [
                 "cfc64dd450c9bd1f"
@@ -1335,8 +1335,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 340,
-        "y": 1280,
+        "x": 520,
+        "y": 1140,
         "wires": [
             [
                 "b6a79d36ec140a01"
@@ -1361,8 +1361,8 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 530,
-        "y": 1360,
+        "x": 710,
+        "y": 1220,
         "wires": [
             []
         ]
@@ -1393,8 +1393,8 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 130,
-        "y": 1120,
+        "x": 310,
+        "y": 980,
         "wires": [
             [
                 "d63ea4587764490f"
@@ -1413,8 +1413,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 340,
-        "y": 1360,
+        "x": 520,
+        "y": 1220,
         "wires": [
             [
                 "e575f51247d98003"
@@ -1434,8 +1434,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 140,
-        "y": 1040,
+        "x": 320,
+        "y": 900,
         "wires": [
             [
                 "f02de9c625e43d87"
@@ -1456,8 +1456,8 @@
         "correl": "",
         "expiry": "",
         "broker": "85868b828ba66d5c",
-        "x": 1100,
-        "y": 1040,
+        "x": 1280,
+        "y": 900,
         "wires": []
     },
     {
@@ -1478,8 +1478,8 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 690,
-        "y": 1040,
+        "x": 870,
+        "y": 900,
         "wires": [
             [
                 "257b0e082e7f8c76"
@@ -1498,8 +1498,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 890,
-        "y": 1040,
+        "x": 1070,
+        "y": 900,
         "wires": [
             [
                 "3baa1ab40164713a"
@@ -1532,8 +1532,8 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 510,
-        "y": 1040,
+        "x": 690,
+        "y": 900,
         "wires": [
             [
                 "2e14ec97531e18f3"
@@ -1552,8 +1552,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 330,
-        "y": 1040,
+        "x": 510,
+        "y": 900,
         "wires": [
             [
                 "af9a8489716d3ae2"
@@ -1616,8 +1616,8 @@
         "height": 7,
         "className": "",
         "interpolation": "linear",
-        "x": 650,
-        "y": 700,
+        "x": 830,
+        "y": 560,
         "wires": [
             []
         ]
@@ -1678,8 +1678,8 @@
         "height": 7,
         "className": "",
         "interpolation": "linear",
-        "x": 650,
-        "y": 780,
+        "x": 830,
+        "y": 640,
         "wires": [
             []
         ]
@@ -1696,8 +1696,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 450,
-        "y": 700,
+        "x": 630,
+        "y": 560,
         "wires": [
             [
                 "f07a30a7917ef220"
@@ -1716,8 +1716,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 450,
-        "y": 780,
+        "x": 630,
+        "y": 640,
         "wires": [
             [
                 "5cb77b7094784354"
@@ -1755,8 +1755,8 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 1200,
-        "y": 1240,
+        "x": 1380,
+        "y": 1100,
         "wires": [
             []
         ]
@@ -1792,8 +1792,8 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 1200,
-        "y": 1320,
+        "x": 1380,
+        "y": 1180,
         "wires": [
             []
         ]
@@ -1811,8 +1811,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 810,
-        "y": 1280,
+        "x": 990,
+        "y": 1140,
         "wires": [
             [
                 "dc19e6b1200996c1",
@@ -1832,8 +1832,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1010,
-        "y": 1240,
+        "x": 1190,
+        "y": 1100,
         "wires": [
             [
                 "c46a1fbbb2b8e514"
@@ -1852,8 +1852,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1010,
-        "y": 1320,
+        "x": 1190,
+        "y": 1180,
         "wires": [
             [
                 "2249e902ffabed23"

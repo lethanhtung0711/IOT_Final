@@ -210,7 +210,7 @@
         "colors": {
             "surface": "#ffffff",
             "primary": "#0094ce",
-            "bgPage": "#ffffff",
+            "bgPage": "#f2bbc0",
             "groupBg": "#ffffff",
             "groupOutline": "#cccccc"
         },
@@ -236,7 +236,7 @@
         "name": "Hệ thống giám sát ",
         "ui": "0e8f91213022b9ea",
         "path": "/page1",
-        "icon": "home",
+        "icon": "bell",
         "layout": "grid",
         "theme": "b952a29597227932",
         "breakpoints": [
@@ -300,7 +300,7 @@
         "name": "LED",
         "ui": "0e8f91213022b9ea",
         "path": "/page2",
-        "icon": "home",
+        "icon": "lightbulb",
         "layout": "grid",
         "theme": "b952a29597227932",
         "breakpoints": [
@@ -411,7 +411,7 @@
     {
         "id": "2629375e52979a42",
         "type": "ui-group",
-        "name": "Group 8",
+        "name": "CONTACT",
         "page": "e35b7948e04fcdb1",
         "width": 6,
         "height": 1,
@@ -425,7 +425,7 @@
     {
         "id": "b127297554aff654",
         "type": "ui-group",
-        "name": "Group 9",
+        "name": "TEMP AND HUMI",
         "page": "e35b7948e04fcdb1",
         "width": 6,
         "height": 1,
@@ -442,7 +442,7 @@
         "name": "FOOD",
         "ui": "0e8f91213022b9ea",
         "path": "/page4",
-        "icon": "home",
+        "icon": "slack",
         "layout": "grid",
         "theme": "b952a29597227932",
         "breakpoints": [
@@ -469,8 +469,8 @@
         ],
         "order": 4,
         "className": "",
-        "visible": true,
-        "disabled": false
+        "visible": "true",
+        "disabled": "false"
     },
     {
         "id": "c2795566d02a9df2",
@@ -603,7 +603,7 @@
         "type": "function",
         "z": "01b01358d6bea386",
         "name": "function 21",
-        "func": "let p = msg.payload;\n\n// Nếu payload là OBJECT → dùng luôn\nif (typeof p === \"object\") {\n    msg.payload = {\n        temperature: Number(p.temperature),\n        humidity: Number(p.humidity)\n    };\n    return msg;\n}\n\n// Nếu payload là STRING → parse JSON\nif (typeof p === \"string\") {\n    try {\n        const parsed = JSON.parse(p);\n        msg.payload = {\n            temperature: Number(parsed.temperature),\n            humidity: Number(parsed.humidity)\n        };\n        return msg;\n    } catch (e) {\n        node.warn(\"JSON parse error - payload không hợp lệ:\");\n        node.warn(p);\n        return null;\n    }\n}\n\nnode.warn(\"Payload type không được hỗ trợ:\");\nnode.warn(typeof p);\nreturn null;\n\n",
+        "func": "let d = msg.payload;\n\n// Chuỗi JSON → convert sang object\nif (typeof d === \"string\") {\n    try { d = JSON.parse(d); }\n    catch (e) {\n        node.warn(\"Invalid JSON from ESP32\");\n        return null;\n    }\n}\n\n// Gửi cả hai giá trị sang UI Template\nmsg.payload = {\n    temperature: d.temperature,\n    humidity: d.humidity\n};\n\nreturn msg;\n\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -1664,7 +1664,7 @@
             "#d62728",
             "#ff9896",
             "#9467bd",
-            "#c5b0d5"
+            "#845ea1"
         ],
         "textColor": [
             "#666666"
