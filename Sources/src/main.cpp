@@ -15,10 +15,9 @@
 #include <ESP32Servo.h>
 #include "Adafruit_SHT31.h"
 
-// ===================== HARDWARE =====================
 #define SERVO_PIN 16
 
-// 4 LED (KHÔNG dùng chân 2 nữa)
+//LED
 #define LED1_PIN 5
 #define LED2_PIN 18
 #define LED3_PIN 19
@@ -33,13 +32,13 @@
 #define IR3_PIN 34
 #define IR4_PIN 35
 
-// ===================== SHT30 =====================
+// SHT30
 Adafruit_SHT31 sht30;
 
-// ===================== LCD =====================
+// LCD
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
-// ===================== Servo =====================
+// SERVOSERVO
 Servo servoMotor;
 
 
@@ -73,7 +72,7 @@ namespace
     const char *topic_ir3   = "esp32/ir3";
     const char *topic_ir4   = "esp32/ir4";
 
-    // Danh sách topic cần subscribe
+    // 
     const char *subscribe_list[] = {
         topic_servo,
         topic_led1, topic_led2, topic_led3, topic_led4,
@@ -86,9 +85,7 @@ namespace
     String client_id = String("ESP32-") + WiFi.macAddress();
 }
 
-// ======================================================
-//                  READ SHT30 + Publish
-// ======================================================
+// READ SHT30 + Publish
 void publishSHT30()
 {
     float t = sht30.readTemperature();
@@ -114,9 +111,8 @@ void publishSHT30()
     Serial.println(json);
 }
 
-// ======================================================
-//                  READ IR SENSORS
-// ======================================================
+// READ IR SENSORS
+// 
 void publishIR()
 {
     const char *ir1 = digitalRead(IR1_PIN) ? "HIGH" : "LOW";
@@ -132,9 +128,7 @@ void publishIR()
     Serial.printf("[IR] 1:%s  2:%s  3:%s  4:%s\n", ir1, ir2, ir3, ir4);
 }
 
-// ======================================================
-//                      CALLBACK
-// ======================================================
+// CALLBACK
 void mqttCallback(char *topic, uint8_t *payload, unsigned int len)
 {
     String msg = "";
@@ -143,15 +137,15 @@ void mqttCallback(char *topic, uint8_t *payload, unsigned int len)
 
     Serial.printf("[MQTT] %s = %s\n", topic, msg.c_str());
 
-    // ===== Servo: quay 90 rồi tự quay về 0 =====
+
     if (!strcmp(topic, topic_servo)) {
         if (msg == "1") {
             Serial.println("[SERVO] Rotate 90 then return");
-            servoMotor.write(90);   // quay sang 90°
-            delay(200);             // 
-            servoMotor.write(0);    // quay về 0°
+            servoMotor.write(90);   
+            delay(200);              
+            servoMotor.write(0);    
         } else {
-            servoMotor.write(0);    // lệnh "0" giữ 0°
+            servoMotor.write(0);  
         }
         return;
     }
@@ -173,7 +167,7 @@ void mqttCallback(char *topic, uint8_t *payload, unsigned int len)
         return;
     }
 
-    // FAN (2 quạt chung 1 topic)
+    // FAN 
     if (!strcmp(topic, topic_fan)) {
         bool st = (msg == "1");
         digitalWrite(FAN1_PIN, st);
@@ -191,9 +185,7 @@ void mqttCallback(char *topic, uint8_t *payload, unsigned int len)
     }
 }
 
-// ======================================================
 //                        SETUP
-// ======================================================
 void setup()
 {
     Serial.begin(115200);
@@ -244,7 +236,7 @@ void setup()
     delay(1000);
 
     // SHT30
-    Wire.begin(21, 22);         // SCL=22, SDA=21
+    Wire.begin(21, 22);         
     if (!sht30.begin(0x44)) {
         Serial.println("Could not find SHT30 sensor!");
         lcd.clear();
@@ -259,15 +251,12 @@ void setup()
     lcd.print("System Ready");
 
     // Timers
-    shtTicker.attach(5, publishSHT30); // mỗi 5s đọc SHT30
-    irTicker.attach(2, publishIR);     // mỗi 2s đọc IR
+    shtTicker.attach(5, publishSHT30); 
+    irTicker.attach(2, publishIR);    
 
     Serial.println("Setup done.");
 }
 
-// ======================================================
-//                        LOOP
-// ======================================================
 void loop()
 {
     MQTT::reconnect(mqttClient,
