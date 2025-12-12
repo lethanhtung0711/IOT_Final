@@ -1,11 +1,10 @@
 #include <Arduino.h>
+#include <WiFi.h>
 
-#include "secrets/wifi.h"
 #include "wifi_connect.h"
 #include <WiFiClientSecure.h>
 
 #include "ca_cert_emqx.h"
-#include "secrets/mqtt.h"
 #include <PubSubClient.h>
 #include "MQTT.h"
 
@@ -14,11 +13,12 @@
 #include <LiquidCrystal_I2C.h>
 #include <ESP32Servo.h>
 #include "Adafruit_SHT31.h"
+#include "../include/secrets/wifi.h"
+#include "../include/secrets/mqtt.h"
 
-// ===================== HARDWARE =====================
 #define SERVO_PIN 16
 
-// 4 LED (KHÔNG dùng chân 2 nữa)
+
 #define LED1_PIN 5
 #define LED2_PIN 18
 #define LED3_PIN 19
@@ -33,16 +33,16 @@
 #define IR3_PIN 34
 #define IR4_PIN 35
 
-// ===================== SHT30 =====================
+//sht30
 Adafruit_SHT31 sht30;
 
-// ===================== LCD =====================
+//LCD
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
-// ===================== Servo =====================
+//SERVO
 Servo servoMotor;
 
-
+// WORD 
 namespace
 {
     const char *ssid     = WiFiSecrets::ssid;
@@ -132,9 +132,7 @@ void publishIR()
     Serial.printf("[IR] 1:%s  2:%s  3:%s  4:%s\n", ir1, ir2, ir3, ir4);
 }
 
-// ======================================================
-//                      CALLBACK
-// ======================================================
+
 void mqttCallback(char *topic, uint8_t *payload, unsigned int len)
 {
     String msg = "";
@@ -147,16 +145,16 @@ void mqttCallback(char *topic, uint8_t *payload, unsigned int len)
     if (!strcmp(topic, topic_servo)) {
         if (msg == "1") {
             Serial.println("[SERVO] Rotate 90 then return");
-            servoMotor.write(90);   // quay sang 90°
-            delay(200);             // 
-            servoMotor.write(0);    // quay về 0°
+            servoMotor.write(90);   
+            delay(200);            
+            servoMotor.write(0);   
         } else {
-            servoMotor.write(0);    // lệnh "0" giữ 0°
+            servoMotor.write(0);    
         }
         return;
     }
 
-    // LEDs riêng lẻ
+
     if (!strcmp(topic, topic_led1)) { digitalWrite(LED1_PIN, msg == "1"); return; }
     if (!strcmp(topic, topic_led2)) { digitalWrite(LED2_PIN, msg == "1"); return; }
     if (!strcmp(topic, topic_led3)) { digitalWrite(LED3_PIN, msg == "1"); return; }
@@ -173,7 +171,7 @@ void mqttCallback(char *topic, uint8_t *payload, unsigned int len)
         return;
     }
 
-    // FAN (2 quạt chung 1 topic)
+    // FAN 
     if (!strcmp(topic, topic_fan)) {
         bool st = (msg == "1");
         digitalWrite(FAN1_PIN, st);
@@ -191,9 +189,7 @@ void mqttCallback(char *topic, uint8_t *payload, unsigned int len)
     }
 }
 
-// ======================================================
-//                        SETUP
-// ======================================================
+//SETUP
 void setup()
 {
     Serial.begin(115200);
