@@ -56,12 +56,11 @@ Hệ thống chăm sóc thú cưng thông minh được xây dựng nhằm giả
 ---
 
 # 3. Block Diagram  
-![Block Diagram](./images/3.png)
+![Block Diagram](./images/DIAGRAM.png)
 
 ---
 
 # 4. Pin Diagram
-![Pinout](./images/9.png)
 
 | Thiết bị | Chân | ESP32 |
 |---------|------|--------|
