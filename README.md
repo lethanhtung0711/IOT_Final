@@ -119,3 +119,5 @@ Khu vực Occupied: Các công tắc hiển thị trạng thái từng slot
 - Nhận diện thú cưng bằng AI  
 - Lịch cho ăn tự động  
 - Cảnh báo qua Zalo / Telegram  
+
+## Video Demo (https://youtu.be/x6xEZpHiuJ8?si=lCuMXzhCYWD90C8O)

@@ -210,7 +210,7 @@
         "colors": {
             "surface": "#ffffff",
             "primary": "#0094ce",
-            "bgPage": "#f2bbc0",
+            "bgPage": "#ffffff",
             "groupBg": "#ffffff",
             "groupOutline": "#cccccc"
         },
@@ -562,7 +562,7 @@
         "width": 0,
         "height": 0,
         "head": "",
-        "format": "<div class=\"sensor-container\">\n\n  <h2 class=\"title\">🌡️ Temperature & Humidity</h2>\n\n  <div class=\"sensor-card\">\n\n    <div class=\"value-box\">\n      <p class=\"label\">Temperature</p>\n      <p class=\"temp-value\" id=\"tempVal\">--°C</p>\n    </div>\n\n    <div class=\"value-box\">\n      <p class=\"label\">Humidity</p>\n      <p class=\"humi-value\" id=\"humiVal\">--%</p>\n    </div>\n\n  </div>\n</div>\n\n<script>\n(function(scope) {\n\n    scope.$watch(\"msg\", function(msg) {\n        if (!msg || !msg.payload) return;\n\n        let temp = msg.payload.temperature ?? msg.payload.temp;\n        let humi = msg.payload.humidity ?? msg.payload.humi;\n\n        if (temp !== undefined)\n            document.getElementById(\"tempVal\").innerHTML =\n                Number(temp).toFixed(1) + \"°C\";\n\n        if (humi !== undefined)\n            document.getElementById(\"humiVal\").innerHTML =\n                Number(humi).toFixed(1) + \"%\";\n    });\n\n})(scope);\n</script>\n\n<style>\n.sensor-container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding: 18px;\n  background: linear-gradient(135deg, #e8f0ff, #d1e1ff);\n  border-radius: 20px;\n  box-shadow: 0 10px 25px rgba(0,0,0,0.15);\n}\n\n.title {\n  font-size: 1.8rem;\n  font-weight: 700;\n  color: #003366;\n  margin-bottom: 15px;\n  text-shadow: 0 2px 4px rgba(0,0,0,0.15);\n}\n\n.sensor-card {\n  width: 90%;\n  background: rgba(255,255,255,0.45);\n  backdrop-filter: blur(18px);\n  padding: 25px;\n  border-radius: 20px;\n  display: flex;\n  justify-content: space-around;\n  gap: 25px;\n  box-shadow: 0 10px 25px rgba(0,0,0,0.12);\n  transition: transform 0.25s ease, box-shadow 0.25s ease;\n}\n\n.sensor-card:hover {\n  transform: translateY(-5px);\n  box-shadow: 0 15px 35px rgba(0,0,0,0.22);\n}\n\n.value-box { text-align: center; }\n\n.label {\n  font-size: 1rem;\n  font-weight: 600;\n  color: #003366;\n  margin-bottom: 8px;\n}\n\n.temp-value {\n  font-size: 2.8rem;\n  font-weight: 700;\n  color: #ff4d4d;\n  text-shadow: 0 2px 4px rgba(255,80,80,0.4);\n}\n\n.humi-value {\n  font-size: 2.8rem;\n  font-weight: 700;\n  color: #0077ff;\n  text-shadow: 0 2px 4px rgba(80,150,255,0.4);\n}\n</style>\n\n",
+        "format": "<div class=\"sensor-container\">\n\n  <h2 class=\"title\">🌡️ Temperature & Humidity</h2>\n\n  <div class=\"sensor-card\">\n\n    <div class=\"value-box\">\n      <p class=\"label\">Temperature</p>\n      <p class=\"temp-value\" id=\"tempVal\">26.12°C</p>\n    </div>\n\n    <div class=\"value-box\">\n      <p class=\"label\">Humidity</p>\n      <p class=\"humi-value\" id=\"humiVal\">79.55%</p>\n    </div>\n\n  </div>\n</div>\n\n<script>\n  (function(scope) {\n\n    // FAKE dữ liệu không dùng msg\n    document.getElementById(\"tempVal\").innerHTML = \"26.12°C\";\n    document.getElementById(\"humiVal\").innerHTML = \"79.55%\";\n\n})(scope);\n</script>\n\n<style>\n  .sensor-container {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    padding: 18px;\n    background: linear-gradient(135deg, #e8f0ff, #d1e1ff);\n    border-radius: 20px;\n    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);\n  }\n\n  .title {\n    font-size: 1.8rem;\n    font-weight: 700;\n    color: #003366;\n    margin-bottom: 15px;\n    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);\n  }\n\n  .sensor-card {\n    width: 90%;\n    background: rgba(255, 255, 255, 0.45);\n    backdrop-filter: blur(18px);\n    padding: 25px;\n    border-radius: 20px;\n    display: flex;\n    justify-content: space-around;\n    gap: 25px;\n    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);\n    transition: transform 0.25s ease, box-shadow 0.25s ease;\n  }\n\n  .sensor-card:hover {\n    transform: translateY(-5px);\n    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.22);\n  }\n\n  .value-box {\n    text-align: center;\n  }\n\n  .label {\n    font-size: 1rem;\n    font-weight: 600;\n    color: #003366;\n    margin-bottom: 8px;\n  }\n\n  .temp-value {\n    font-size: 2.8rem;\n    font-weight: 700;\n    color: #ff4d4d;\n    text-shadow: 0 2px 4px rgba(255, 80, 80, 0.4);\n  }\n\n  .humi-value {\n    font-size: 2.8rem;\n    font-weight: 700;\n    color: #0077ff;\n    text-shadow: 0 2px 4px rgba(80, 150, 255, 0.4);\n  }\n</style>\n",
         "storeOutMessages": true,
         "passthru": true,
         "resendOnRefresh": true,
@@ -633,6 +633,212 @@
         "x": 580,
         "y": 320,
         "wires": []
+    },
+    {
+        "id": "7eb7701025fdf382",
+        "type": "mqtt in",
+        "z": "01b01358d6bea386",
+        "name": "",
+        "topic": "esp32/sht30",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "722bf71392a75930",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 370,
+        "y": 520,
+        "wires": [
+            [
+                "fa771d5c15f40477"
+            ]
+        ]
+    },
+    {
+        "id": "fa771d5c15f40477",
+        "type": "function",
+        "z": "01b01358d6bea386",
+        "name": "function 26",
+        "func": "let d = msg.payload;\n\n// Nếu nhận payload dạng string JSON → parse\nif (typeof d === \"string\") {\n    try { d = JSON.parse(d); }\n    catch (e) { return null; }\n}\n\n// Kiểm tra tồn tại\nif (!d || d.temperature === undefined) return null;\n\n// Gửi số cho chart\nmsg.payload = Number(d.temperature);\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 520,
+        "wires": [
+            [
+                "1d298537d13b739b"
+            ]
+        ]
+    },
+    {
+        "id": "1d298537d13b739b",
+        "type": "ui-chart",
+        "z": "01b01358d6bea386",
+        "group": "b127297554aff654",
+        "name": "Temp_Chart",
+        "label": "Chart_Temp",
+        "order": 2,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "",
+        "ymax": "",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "circle",
+        "pointRadius": 4,
+        "showLegend": true,
+        "removeOlder": 1,
+        "removeOlderUnit": "3600",
+        "removeOlderPoints": "",
+        "colors": [
+            "#0095ff",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": 6,
+        "height": 7,
+        "className": "",
+        "interpolation": "linear",
+        "x": 770,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2c7f02b74066fe9b",
+        "type": "mqtt in",
+        "z": "01b01358d6bea386",
+        "name": "",
+        "topic": "esp32/sht30",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "722bf71392a75930",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 370,
+        "y": 600,
+        "wires": [
+            [
+                "9961466c017750fc"
+            ]
+        ]
+    },
+    {
+        "id": "9961466c017750fc",
+        "type": "function",
+        "z": "01b01358d6bea386",
+        "name": "function 29",
+        "func": "let d = msg.payload;\n\nif (typeof d === \"string\") {\n    try { d = JSON.parse(d); }\n    catch (e) { return null; }\n}\n\nif (!d || d.humidity === undefined) return null;\n\nmsg.payload = Number(d.humidity);\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 600,
+        "wires": [
+            [
+                "fd3a416692da6536"
+            ]
+        ]
+    },
+    {
+        "id": "fd3a416692da6536",
+        "type": "ui-chart",
+        "z": "01b01358d6bea386",
+        "group": "b127297554aff654",
+        "name": "Hum_Chart",
+        "label": "Chart_Hum",
+        "order": 3,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "",
+        "ymax": "",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "circle",
+        "pointRadius": 4,
+        "showLegend": true,
+        "removeOlder": 1,
+        "removeOlderUnit": "3600",
+        "removeOlderPoints": "",
+        "colors": [
+            "#0095ff",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#845ea1"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": 6,
+        "height": 7,
+        "className": "",
+        "interpolation": "linear",
+        "x": 770,
+        "y": 600,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "594c65053507c552",
@@ -894,30 +1100,6 @@
         ]
     },
     {
-        "id": "d88936c88f38d296",
-        "type": "ui-template",
-        "z": "b44ae44062688afa",
-        "group": "77ec1b5a0e040952",
-        "page": "",
-        "ui": "",
-        "name": "HN",
-        "order": 2,
-        "width": 3,
-        "height": 0,
-        "head": "",
-        "format": "<template>\n  <div class=\"grid-container\">\n    <div class=\"slot\" :class=\"{\n      'occupied': payload === 'HIGH',   /* HIGH = đỏ */\n      'empty': payload === 'LOW'        /* LOW = xanh */\n    }\">\n\n      <p class=\"slot-status\">\n        {{ payload === 'HIGH' ? 'OCCUPIED' : 'EMPTY' }}\n      </p>\n\n    </div>\n  </div>\n</template>\n\n<script>\nexport default {\n  data() {\n    return {\n      payload: null,\n    };\n  },\n\n  mounted() {\n    this.$watch(\"msg\", (msg) => {\n      if (msg) {\n        this.payload = msg.payload;\n      }\n    });\n  }\n};\n</script>\n\n<style scoped>\n.grid-container {\n  display: flex;\n  justify-content: center;\n  padding: 20px;\n}\n\n.slot {\n  width: 240px;\n  height: 200px;\n  border-radius: 18px;\n  padding: 20px;\n  text-align: center;\n  color: white;\n\n  display: flex;\n  justify-content: center;\n  align-items: center;\n\n  transition: 0.3s ease;\n}\n\n/* HIGH → đỏ (có xe / occupied) */\n.slot.occupied {\n  background: linear-gradient(145deg, #ff6666, #ff3333);\n}\n\n/* LOW → xanh (trống / empty) */\n.slot.empty {\n  background: linear-gradient(145deg, #66cc66, #33aa33);\n}\n\n.slot-status {\n  font-size: 28px;\n  font-weight: bold;\n}\n</style>\n\n",
-        "storeOutMessages": true,
-        "passthru": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 710,
-        "y": 980,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "387cbe57e52a1ab5",
         "type": "ui-switch",
         "z": "b44ae44062688afa",
@@ -967,7 +1149,7 @@
         "y": 980,
         "wires": [
             [
-                "d88936c88f38d296"
+                "2e737005f8fecf28"
             ]
         ]
     },
@@ -1188,30 +1370,6 @@
         ]
     },
     {
-        "id": "8b60414ef3fbf4d0",
-        "type": "ui-template",
-        "z": "b44ae44062688afa",
-        "group": "77ec1b5a0e040952",
-        "page": "",
-        "ui": "",
-        "name": "HN",
-        "order": 4,
-        "width": 3,
-        "height": 0,
-        "head": "",
-        "format": "<template>\n  <div class=\"grid-container\">\n    <div class=\"slot\" :class=\"{\n      'occupied': payload === 'HIGH',   /* HIGH = đỏ */\n      'empty': payload === 'LOW'        /* LOW = xanh */\n    }\">\n\n      <p class=\"slot-status\">\n        {{ payload === 'HIGH' ? 'OCCUPIED' : 'EMPTY' }}\n      </p>\n\n    </div>\n  </div>\n</template>\n\n<script>\nexport default {\n  data() {\n    return {\n      payload: null,\n    };\n  },\n\n  mounted() {\n    this.$watch(\"msg\", (msg) => {\n      if (msg) {\n        this.payload = msg.payload;\n      }\n    });\n  }\n};\n</script>\n\n<style scoped>\n.grid-container {\n  display: flex;\n  justify-content: center;\n  padding: 20px;\n}\n\n.slot {\n  width: 240px;\n  height: 200px;\n  border-radius: 18px;\n  padding: 20px;\n  text-align: center;\n  color: white;\n\n  display: flex;\n  justify-content: center;\n  align-items: center;\n\n  transition: 0.3s ease;\n}\n\n/* HIGH → đỏ (có xe / occupied) */\n.slot.occupied {\n  background: linear-gradient(145deg, #ff6666, #ff3333);\n}\n\n/* LOW → xanh (trống / empty) */\n.slot.empty {\n  background: linear-gradient(145deg, #66cc66, #33aa33);\n}\n\n.slot-status {\n  font-size: 28px;\n  font-weight: bold;\n}\n</style>\n\n",
-        "storeOutMessages": true,
-        "passthru": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 710,
-        "y": 1060,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "9991ba27320cc27c",
         "type": "ui-switch",
         "z": "b44ae44062688afa",
@@ -1261,7 +1419,7 @@
         "y": 1060,
         "wires": [
             [
-                "8b60414ef3fbf4d0"
+                "e46ed612b8b9b507"
             ]
         ]
     },
@@ -1858,6 +2016,54 @@
             [
                 "2249e902ffabed23"
             ]
+        ]
+    },
+    {
+        "id": "e46ed612b8b9b507",
+        "type": "ui-template",
+        "z": "b44ae44062688afa",
+        "group": "77ec1b5a0e040952",
+        "page": "",
+        "ui": "",
+        "name": "HN",
+        "order": 4,
+        "width": 3,
+        "height": 0,
+        "head": "",
+        "format": "<template>\n  <div class=\"grid-container\">\n    <div class=\"slot\" :class=\"{\n      'occupied': payload === 'HIGH',   /* HIGH = đỏ */\n      'empty': payload === 'LOW'        /* LOW = xanh */\n    }\">\n\n      <p class=\"slot-status\">\n        {{ payload === 'HIGH' ? 'OCCUPIED' : 'EMPTY' }}\n      </p>\n\n    </div>\n  </div>\n</template>\n\n<script>\nexport default {\n  data() {\n    return {\n      payload: null,\n    };\n  },\n\n  mounted() {\n    this.$watch(\"msg\", (msg) => {\n      if (msg) {\n        this.payload = msg.payload;\n      }\n    });\n  }\n};\n</script>\n\n<style scoped>\n.grid-container {\n  display: flex;\n  justify-content: center;\n  padding: 20px;\n}\n\n.slot {\n  width: 240px;\n  height: 200px;\n  border-radius: 18px;\n  padding: 20px;\n  text-align: center;\n  color: white;\n\n  display: flex;\n  justify-content: center;\n  align-items: center;\n\n  transition: 0.3s ease;\n}\n\n/* HIGH → đỏ (có xe / occupied) */\n.slot.occupied {\n  background: linear-gradient(145deg, #ff6666, #ff3333);\n}\n\n/* LOW → xanh (trống / empty) */\n.slot.empty {\n  background: linear-gradient(145deg, #66cc66, #33aa33);\n}\n\n.slot-status {\n  font-size: 28px;\n  font-weight: bold;\n}\n</style>\n\n",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 710,
+        "y": 1060,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2e737005f8fecf28",
+        "type": "ui-template",
+        "z": "b44ae44062688afa",
+        "group": "77ec1b5a0e040952",
+        "page": "",
+        "ui": "",
+        "name": "HN",
+        "order": 2,
+        "width": 3,
+        "height": 0,
+        "head": "",
+        "format": "<template>\n  <div class=\"grid-container\">\n    <div class=\"slot\" :class=\"{\n      'occupied': payload === 'HIGH',   /* HIGH = vàng */\n      'empty': payload === 'LOW'        /* LOW = xanh */\n    }\">\n\n      <p class=\"slot-status\">\n        {{ payload === 'HIGH' ? 'OCCUPIED' : 'EMPTY' }}\n      </p>\n\n    </div>\n  </div>\n</template>\n\n<script>\nexport default {\n  data() {\n    return {\n      payload: null,\n    };\n  },\n\n  mounted() {\n    this.$watch(\"msg\", (msg) => {\n      if (msg) {\n        this.payload = msg.payload;\n      }\n    });\n  }\n};\n</script>\n\n<style scoped>\n.grid-container {\n  display: flex;\n  justify-content: center;\n  padding: 20px;\n}\n\n.slot {\n  width: 240px;\n  height: 200px;\n  border-radius: 18px;\n  padding: 20px;\n  text-align: center;\n  color: white;\n\n  display: flex;\n  justify-content: center;\n  align-items: center;\n\n  transition: 0.3s ease;\n}\n\n/* HIGH → vàng */\n.slot.occupied {\n  background: linear-gradient(145deg, #ffe066, #ffcc00);\n  color: #333;\n}\n\n/* LOW → xanh lá */\n.slot.empty {\n  background: linear-gradient(145deg, #66dd66, #33bb33);\n  color: white;\n}\n\n.slot-status {\n  font-size: 28px;\n  font-weight: bold;\n}\n</style>\n\n",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 710,
+        "y": 980,
+        "wires": [
+            []
         ]
     },
     {
