@@ -120,4 +120,4 @@ Khu vực Occupied: Các công tắc hiển thị trạng thái từng slot
 - Lịch cho ăn tự động  
 - Cảnh báo qua Zalo / Telegram  
 
-## Video Demo: [SYSTEM_HERE] (https://youtu.be/x6xEZpHiuJ8?si=lCuMXzhCYWD90C8O)
+**Video Demo:** [**SYSTEM_PET**](https://youtu.be/x6xEZpHiuJ8?si=lCuMXzhCYWD90C8O)
